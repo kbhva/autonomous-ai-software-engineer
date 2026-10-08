@@ -39,7 +39,7 @@ def test_5xx_is_not_successful():
 '''
 
 FIRST_ATTEMPT_SOURCE = '''def is_successful_status(code: int) -> bool:
-    return 200 <= code < 500
+    return code >= 200
 '''
 
 REPAIRED_SOURCE = '''def is_successful_status(code: int) -> bool:
@@ -53,6 +53,8 @@ class ScriptedModel:
     def __init__(self) -> None:
         self._call_number = 0
         self.review_decisions: list[str] = []
+        self.coder_edits: list[str] = []
+        self.repair_feedback_received = False
 
     def _tool_call(self, action: str, **arguments: Any) -> AgentDecision:
         self._call_number += 1
@@ -104,10 +106,13 @@ class ScriptedModel:
         if role_instructions.startswith("You are the Coder."):
             payload = json.loads(task)
             has_feedback = bool(payload.get("previous_feedback"))
+            if has_feedback:
+                self.repair_feedback_received = True
             if not actions:
                 return self._tool_call("read_file", path="status.py")
             if actions[-1] == "read_file":
                 source = REPAIRED_SOURCE if has_feedback else FIRST_ATTEMPT_SOURCE
+                self.coder_edits.append(source)
                 return self._tool_call("write_file", path="status.py", content=source)
             return AgentDecision(True, json.dumps({
                 "summary": "Updated the status-code predicate.",
@@ -155,8 +160,17 @@ def main() -> int:
         ).run(TASK)
 
         print("State transitions:", " -> ".join(result.transitions))
+        implementation_line = lambda source: next(
+            line.strip() for line in source.splitlines() if "return " in line
+        )
+        print("Initial implementation:", implementation_line(INITIAL_SOURCE))
+        for index, source in enumerate(model.coder_edits, start=1):
+            print(f"Coder edit {index}:", implementation_line(source))
+            if index == 1:
+                print("First edit changed initial source:", source != INITIAL_SOURCE)
         for index, test_result in enumerate(result.tests, start=1):
             print(f"pytest attempt {index}: {test_result.summary}")
+        print("Repair feedback received by Coder:", model.repair_feedback_received)
         print("Scripted reviewer decisions:", " -> ".join(model.review_decisions))
         print("Repair attempts:", result.repair_attempts)
         print("Tool calls:", result.tool_calls)

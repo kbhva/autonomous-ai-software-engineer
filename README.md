@@ -88,7 +88,7 @@ RepoMind returns repository-scoped evidence to the Planner, which can include it
 
 The CLI exposes `single`, `multi`, `multi-mcp`, and `multi-mcp-repomind` modes. It constructs the OpenAI Responses API adapter for every `flagship run`, so live CLI tasks require `OPENAI_API_KEY`. RepoMind is a separate service: this project adapts its `POST /query` API and does not implement its ingestion or embedding pipeline. `multi-mcp-repomind` also requires a live RepoMind service and explicit repository UUID. See [the integration adapter](src/flagship/repomind.py) and [the orchestrator](src/flagship/orchestration/orchestrator.py).
 
-The actual MCP SDK transport has a documented startup hang on Windows. The deterministic demo avoids that path by using the direct tool provider.
+The actual MCP SDK transport has a documented startup hang during Windows asyncio socket-pair startup. The deterministic demo avoids that path by using the direct tool provider. GitHub Actions includes a separate, non-blocking Ubuntu probe for the MCP SDK transport; this coverage does not by itself establish Linux support.
 
 ## Engineering Decisions
 
@@ -165,9 +165,9 @@ RepoMind mode requires a service URL and explicit repository UUID. Each retrieva
 
 ## Tests
 
-The ordinary unit tests use mocked models and temporary repositories and do not need an API key or live RepoMind service. A live RepoMind smoke test is opt-in. The MCP SDK test path is known to hang during Windows asyncio socket-pair startup, so the public CI suite excludes it. CI also excludes private-fixture validation that requires unpublished evaluator assets and nested fixture Git histories.
+The ordinary unit tests use mocked models and temporary repositories and do not need an API key or live RepoMind service. A live RepoMind smoke test is opt-in. The MCP SDK test path is known to hang during Windows asyncio socket-pair startup, so do not run it locally on Windows. GitHub Actions runs the deterministic suite on Ubuntu/Linux and has a separate, non-blocking Ubuntu probe for the actual MCP transport test at `tests/test_mcp.py`, bounded by both a pytest timeout and a workflow timeout. The probe is not evidence of Linux support until it completes successfully. CI also excludes private-fixture validation that requires unpublished evaluator assets and nested fixture Git histories.
 
-Run the safe deterministic suite from PowerShell:
+Run the safe deterministic suite locally from PowerShell:
 
 ```powershell
 $env:PYTHONDONTWRITEBYTECODE = '1'
@@ -196,7 +196,7 @@ The four repositories in `benchmark/repositories/` are synthetic fixtures publis
 1. Build and validate isolated Linux infrastructure before any agent benchmark execution.
 2. Repeat retrieval experiments to estimate run-to-run variance.
 3. Add and validate token/cost telemetry for future agent evaluation.
-4. Add Linux CI coverage for the MCP SDK transport.
+4. Review the non-blocking Linux MCP transport probe and consider making it blocking only after its behavior is established.
 5. Evaluate on a broader set of real-world repositories after isolation is established.
 
 ## What I Would Discuss in an Interview
