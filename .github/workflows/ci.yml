@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  safe-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e ".[dev]"
+      - name: Run deterministic non-LLM tests
+        run: >-
+          python -m pytest -p no:cacheprovider
+          tests/test_agent.py
+          tests/test_file_tools.py
+          tests/test_benchmark_harness.py
+          tests/test_benchmark_smoke.py
+          tests/test_local_benchmark_corpus.py::test_draft_has_unique_task_ids_and_four_variants
+          tests/test_local_benchmark_corpus.py::test_draft_task_records_load_through_the_real_harness_schema
+          tests/test_local_benchmark_corpus.py::test_evaluators_and_reference_fixes_never_appear_in_task_prompts
+          tests/test_local_benchmark_corpus.py::test_repository_source_contains_no_seed_comments_that_give_away_defects
+          tests/test_local_benchmark_corpus.py::test_manifest_sha_is_exact_and_repeatable
+          tests/test_local_benchmark_corpus.py::test_category_difficulty_and_retrieval_labels_are_valid
+          tests/test_model.py
+          tests/test_multi_agent.py
+          tests/test_repomind.py
+          tests/test_shell_tools.py
+          -k "not real_local_baseline_can_be_materialized_from_draft_manifest"
+          -q

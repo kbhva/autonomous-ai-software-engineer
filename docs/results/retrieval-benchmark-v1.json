@@ -1,0 +1,5655 @@
+{
+  "artifact_version": 1,
+  "status": "completed",
+  "benchmark": {
+    "version": "v1",
+    "path": "eval/eval_set_v1_clean.jsonl",
+    "sha256": "095ab6ad618aa26bcfd49022f7044fa095dc46c1b34085e899d83298acee171d",
+    "query_count": 50,
+    "evidence_annotation_count": 70,
+    "unique_source_level_reference_count": 68
+  },
+  "experiment": {
+    "started_at_utc": "2026-10-08T13:47:20Z",
+    "completed_at_utc": "2026-10-08T13:47:30Z",
+    "repository_commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "repository_key": "repomind-fastapi-clean-v1",
+    "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+    "configuration": {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_dimensions": 384,
+      "device": "cuda:0",
+      "chunking": "--ast: Python AST-aware; fixed-size chunking for other supported text; one chunk per commit",
+      "max_commits": 250,
+      "max_files": null,
+      "evaluator_k": 5,
+      "global_repo_mind_top_k_setting_unused_by_evaluator": 20
+    },
+    "postgresql_version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+    "pgvector_version": "0.8.6",
+    "database_image_digest": "sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f",
+    "evaluator_fingerprints": {
+      "evaluate_recall_py_sha256": "f7490a5b6050c1a0099fc4e911a5cc8123801e762342c0d5c8650999efdb7e36",
+      "evaluation_py_sha256": "1bc5bd7955a8ea00b4f9e1d0e2ae272a9b7eb3228c9c1ad89053b5a1deeaa7e5",
+      "retrieval_py_sha256": "ef5711475ca07d8ed145ad8fbe6408d62f83cf799f27091a25a68e5e5342a8a8"
+    },
+    "warmup": {
+      "procedure": "scripts.evaluate_recall.warm_up_retrieval",
+      "requests": 1,
+      "query_id": "RMV1-001",
+      "included_in_metrics": false,
+      "model_initialized_before_timing": true
+    }
+  },
+  "corpus": {
+    "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+    "commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "files_processed_by_ingester": 2877,
+    "candidate_text_files": 2877,
+    "empty_or_whitespace_candidate_files_ignored": 183,
+    "file_documents_created": 2694,
+    "commit_documents_created": 250,
+    "documents_created": 2944,
+    "chunks_created": 15374,
+    "chunks_reused": 0,
+    "chunks_in_corpus": 15374,
+    "commits_ingested": 250,
+    "failures": 0,
+    "reported_skipped_files": 0,
+    "labeled_evidence_annotations": 70,
+    "unique_relevant_source_references": 68,
+    "all_labeled_sources_have_chunks": true
+  },
+  "aggregate": {
+    "queries": 50,
+    "successful_queries": 50,
+    "query_success_rate": 1.0,
+    "evidence_complete_queries": 12,
+    "evidence_complete_rate": 0.24,
+    "mean_recall_at_5": 0.34,
+    "mean_precision_at_5": 0.09200000000000001,
+    "mean_mrr": 0.33899999999999997,
+    "mean_ndcg_at_5": 0.30313941887208623,
+    "retrieval_latency_ms": {
+      "count": 50,
+      "mean": 59.27700200027175,
+      "median": 58.35950000073353,
+      "p95_nearest_rank": 68.92280000101891,
+      "min": 49.26520000117307,
+      "max": 97.93859999990673
+    }
+  },
+  "category_results": {
+    "symbol_lookup": {
+      "queries": 8,
+      "successful_queries": 8,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 1,
+      "evidence_complete_rate": 0.125,
+      "mean_recall_at_5": 0.125,
+      "mean_precision_at_5": 0.025,
+      "mean_mrr": 0.041666666666666664,
+      "mean_ndcg_at_5": 0.0625,
+      "retrieval_latency_ms": {
+        "count": 8,
+        "mean": 64.70981250026853,
+        "median": 59.28790000052686,
+        "p95_nearest_rank": 97.93859999990673,
+        "min": 54.29020000156015,
+        "max": 97.93859999990673
+      }
+    },
+    "class_lookup": {
+      "queries": 5,
+      "successful_queries": 5,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 2,
+      "evidence_complete_rate": 0.4,
+      "mean_recall_at_5": 0.4,
+      "mean_precision_at_5": 0.08,
+      "mean_mrr": 0.4,
+      "mean_ndcg_at_5": 0.4,
+      "retrieval_latency_ms": {
+        "count": 5,
+        "mean": 58.36600000002363,
+        "median": 57.82519999957003,
+        "p95_nearest_rank": 62.8166999995301,
+        "min": 53.549399999610614,
+        "max": 62.8166999995301
+      }
+    },
+    "configuration_dependency": {
+      "queries": 5,
+      "successful_queries": 5,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 1,
+      "evidence_complete_rate": 0.2,
+      "mean_recall_at_5": 0.2,
+      "mean_precision_at_5": 0.04,
+      "mean_mrr": 0.04,
+      "mean_ndcg_at_5": 0.07737056144690832,
+      "retrieval_latency_ms": {
+        "count": 5,
+        "mean": 62.32252000045264,
+        "median": 61.850300000514835,
+        "p95_nearest_rank": 70.87620000129391,
+        "min": 56.27699999968172,
+        "max": 70.87620000129391
+      }
+    },
+    "api_routing": {
+      "queries": 6,
+      "successful_queries": 6,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 0,
+      "evidence_complete_rate": 0.0,
+      "mean_recall_at_5": 0.0,
+      "mean_precision_at_5": 0.0,
+      "mean_mrr": 0.0,
+      "mean_ndcg_at_5": 0.0,
+      "retrieval_latency_ms": {
+        "count": 6,
+        "mean": 56.702383333989324,
+        "median": 58.129150001150265,
+        "p95_nearest_rank": 59.7713000006479,
+        "min": 51.96500000056403,
+        "max": 59.7713000006479
+      }
+    },
+    "behavior": {
+      "queries": 8,
+      "successful_queries": 8,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 1,
+      "evidence_complete_rate": 0.125,
+      "mean_recall_at_5": 0.375,
+      "mean_precision_at_5": 0.125,
+      "mean_mrr": 0.3958333333333333,
+      "mean_ndcg_at_5": 0.3266433990956823,
+      "retrieval_latency_ms": {
+        "count": 8,
+        "mean": 54.496512500008976,
+        "median": 54.14585000016814,
+        "p95_nearest_rank": 60.100999999121996,
+        "min": 49.26520000117307,
+        "max": 60.100999999121996
+      }
+    },
+    "cross_file": {
+      "queries": 7,
+      "successful_queries": 7,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 1,
+      "evidence_complete_rate": 0.14285714285714285,
+      "mean_recall_at_5": 0.2857142857142857,
+      "mean_precision_at_5": 0.1142857142857143,
+      "mean_mrr": 0.35714285714285715,
+      "mean_ndcg_at_5": 0.2857142857142857,
+      "retrieval_latency_ms": {
+        "count": 7,
+        "mean": 59.30691428589593,
+        "median": 59.251599999697646,
+        "p95_nearest_rank": 64.50140000015381,
+        "min": 53.37409999992815,
+        "max": 64.50140000015381
+      }
+    },
+    "architecture_docs": {
+      "queries": 6,
+      "successful_queries": 6,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 1,
+      "evidence_complete_rate": 0.16666666666666666,
+      "mean_recall_at_5": 0.5,
+      "mean_precision_at_5": 0.16666666666666666,
+      "mean_mrr": 0.75,
+      "mean_ndcg_at_5": 0.5377157309218195,
+      "retrieval_latency_ms": {
+        "count": 6,
+        "mean": 58.26128333380135,
+        "median": 57.44039999990491,
+        "p95_nearest_rank": 62.42960000054154,
+        "min": 55.39150000004156,
+        "max": 62.42960000054154
+      }
+    },
+    "history": {
+      "queries": 5,
+      "successful_queries": 5,
+      "query_success_rate": 1.0,
+      "evidence_complete_queries": 5,
+      "evidence_complete_rate": 1.0,
+      "mean_recall_at_5": 1.0,
+      "mean_precision_at_5": 0.2,
+      "mean_mrr": 0.85,
+      "mean_ndcg_at_5": 0.8861353116146786,
+      "retrieval_latency_ms": {
+        "count": 5,
+        "mean": 60.36530000019411,
+        "median": 60.90290000065579,
+        "p95_nearest_rank": 63.93159999970521,
+        "min": 55.29550000028394,
+        "max": 63.93159999970521
+      }
+    }
+  },
+  "failure_analysis": {
+    "zero_relevant_sources_retrieved": [
+      "RMV1-001",
+      "RMV1-002",
+      "RMV1-003",
+      "RMV1-005",
+      "RMV1-006",
+      "RMV1-007",
+      "RMV1-008",
+      "RMV1-009",
+      "RMV1-010",
+      "RMV1-011",
+      "RMV1-014",
+      "RMV1-015",
+      "RMV1-016",
+      "RMV1-018",
+      "RMV1-019",
+      "RMV1-020",
+      "RMV1-021",
+      "RMV1-022",
+      "RMV1-023",
+      "RMV1-024",
+      "RMV1-025",
+      "RMV1-028",
+      "RMV1-032",
+      "RMV1-033",
+      "RMV1-035",
+      "RMV1-036",
+      "RMV1-038",
+      "RMV1-041"
+    ],
+    "partial_recall": [
+      {
+        "query_id": "RMV1-026",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\dependencies\\utils.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-027",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\routing.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-029",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\datastructures.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-030",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\background.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-034",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\routing.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-037",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\routing.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-040",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\applications.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-042",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\routing.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-044",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\routing.py"
+        ]
+      },
+      {
+        "query_id": "RMV1-045",
+        "recall": 0.5,
+        "missing_sources": [
+          "fastapi\\applications.py"
+        ]
+      }
+    ],
+    "unusually_high_latency_definition": "successful queries strictly greater than the nearest-rank p95",
+    "unusually_high_latency_queries": [
+      {
+        "query_id": "RMV1-002",
+        "latency_ms": 97.93859999990673
+      },
+      {
+        "query_id": "RMV1-018",
+        "latency_ms": 70.87620000129391
+      }
+    ],
+    "service_errors": []
+  },
+  "per_query": [
+    {
+      "query_id": "RMV1-001",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does FastAPI build a dependency graph from a path operation signature?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "6c1fdf79-68b4-52b8-86b4-2c2154761fb4",
+            "a5b95aa9-6800-512d-af01-1aa3f7aaff3c",
+            "b1a4cc5d-3239-55ed-92a0-b08a9b8b0e64"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "9a89a8ee-4c46-5cea-a9b7-3cdceb959508"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "b1a4cc5d-3239-55ed-92a0-b08a9b8b0e64",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6638,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "a5b95aa9-6800-512d-af01-1aa3f7aaff3c",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6421,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6338,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "9a89a8ee-4c46-5cea-a9b7-3cdceb959508",
+          "document_id": "9c9d7054-8a87-45f5-9be3-b9fd6c848296",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.6288,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "6c1fdf79-68b4-52b8-86b4-2c2154761fb4",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6236,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 59.70270000034361,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-002",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where are generator-based dependency functions entered into their cleanup stack?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "tests\\test_dependency_models.py",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "194a9e62-a97f-517b-8293-144258359850"
+          ]
+        },
+        {
+          "source_id": "tests\\test_dependency_partial.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "a34925d8-9640-51be-ac44-a4ea7f6488b7"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "2165365e-4785-5409-97dc-b63579d23264",
+            "29db1244-db16-563f-b5a8-c700556c0632"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "8af2c750-6339-5705-8fb3-816b31a0f6f9"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "194a9e62-a97f-517b-8293-144258359850",
+          "document_id": "d9e50837-95df-487a-b944-4d3293da7876",
+          "source_id": "tests\\test_dependency_models.py",
+          "source_type": "code",
+          "score": 0.5628,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "a34925d8-9640-51be-ac44-a4ea7f6488b7",
+          "document_id": "0a1cb648-1094-41c5-9de1-25ab6cf0b842",
+          "source_id": "tests\\test_dependency_partial.py",
+          "source_type": "code",
+          "score": 0.511,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "2165365e-4785-5409-97dc-b63579d23264",
+          "document_id": "1dc7dae0-bec5-48ad-8289-bfd2b895b12a",
+          "source_id": "docs\\de\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.5028,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "29db1244-db16-563f-b5a8-c700556c0632",
+          "document_id": "1dc7dae0-bec5-48ad-8289-bfd2b895b12a",
+          "source_id": "docs\\de\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.4815,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "8af2c750-6339-5705-8fb3-816b31a0f6f9",
+          "document_id": "14dfeb94-4f55-469f-814c-f03266e7f17e",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4667,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 97.93859999990673,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-003",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which function recursively resolves dependency values, overrides, and cached dependencies for a request?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "86678f65-5666-559e-96a6-504add0de453"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "d077c2a0-f8ef-58b7-9cfa-9ee22a2dce29"
+          ]
+        },
+        {
+          "source_id": "docs\\hi\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "44c27258-3c4e-56ab-81a7-bfd61f42fd0f"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\advanced\\advanced-dependencies.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "2fdbd6f7-9e90-570d-9eca-95e01645b0c7"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "8af2c750-6339-5705-8fb3-816b31a0f6f9"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "86678f65-5666-559e-96a6-504add0de453",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5742,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "d077c2a0-f8ef-58b7-9cfa-9ee22a2dce29",
+          "document_id": "e41e8edf-898f-4027-8f94-56d073e2b086",
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.5277,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "44c27258-3c4e-56ab-81a7-bfd61f42fd0f",
+          "document_id": "264b2116-6fab-44a7-ae74-e6acd5f1d77a",
+          "source_id": "docs\\hi\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.5234,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "2fdbd6f7-9e90-570d-9eca-95e01645b0c7",
+          "document_id": "ce62b7df-4827-4ed8-af87-c80d68908ce5",
+          "source_id": "docs\\fr\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.5176,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "8af2c750-6339-5705-8fb3-816b31a0f6f9",
+          "document_id": "14dfeb94-4f55-469f-814c-f03266e7f17e",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.5158,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 58.87310000071011,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-004",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where is a response checked against its response model and converted to serialized content?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\es\\docs\\advanced\\response-directly.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "15b91922-2d66-5543-88f0-2c6d99d1b934"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\advanced\\custom-response.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "3e655ee0-3bb1-5b23-863d-e0d61f54fa70"
+          ]
+        },
+        {
+          "source_id": "fastapi\\routing.py",
+          "source_rank": 3,
+          "relevant": true,
+          "chunk_ids": [
+            "3be2bc84-0cf7-53f5-a524-6433cebf9847"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\advanced\\custom-response.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "91dc390f-a7d1-55d2-9465-e62bfcfa9dcc"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\advanced\\response-directly.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "6f31126f-2ffd-5d85-a150-6f54feb2d907"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "15b91922-2d66-5543-88f0-2c6d99d1b934",
+          "document_id": "1422d1e7-e9cc-46d8-9836-84e2b513538e",
+          "source_id": "docs\\es\\docs\\advanced\\response-directly.md",
+          "source_type": "doc",
+          "score": 0.5429,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "3e655ee0-3bb1-5b23-863d-e0d61f54fa70",
+          "document_id": "03b0748c-a087-4d50-8c54-4dbb5f4f2ff5",
+          "source_id": "docs\\es\\docs\\advanced\\custom-response.md",
+          "source_type": "doc",
+          "score": 0.5215,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "3be2bc84-0cf7-53f5-a524-6433cebf9847",
+          "document_id": "d11aac22-1b74-47b1-abda-594d849032a1",
+          "source_id": "fastapi\\routing.py",
+          "source_type": "code",
+          "score": 0.5167,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "91dc390f-a7d1-55d2-9465-e62bfcfa9dcc",
+          "document_id": "588699f7-ff14-475c-b3df-2df7fa90b31d",
+          "source_id": "docs\\fr\\docs\\advanced\\custom-response.md",
+          "source_type": "doc",
+          "score": 0.5085,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "6f31126f-2ffd-5d85-a150-6f54feb2d907",
+          "document_id": "6a621d19-f51a-4b27-a506-37b275364d9e",
+          "source_id": "docs\\fr\\docs\\advanced\\response-directly.md",
+          "source_type": "doc",
+          "score": 0.4952,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 0.3333333333333333,
+      "ndcg_at_5": 0.5,
+      "retrieval_latency_ms": 55.66739999994752,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-005",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where is the ASGI request handler assembled for an API route?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\how-to\\custom-request-and-route.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "d23b3aaf-6086-50f7-9eb5-5cd216dc7278"
+          ]
+        },
+        {
+          "source_id": "docs_src\\custom_request_and_route\\tutorial001_py310.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "c0305956-a177-59fa-807d-dbcef35f40dd"
+          ]
+        },
+        {
+          "source_id": "docs_src\\custom_request_and_route\\tutorial001_an_py310.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "daa93f9b-64e9-57b8-9843-336d9166f817"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\how-to\\custom-request-and-route.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "353634dd-16dc-5188-975c-dcf2fb944e6c"
+          ]
+        },
+        {
+          "source_id": "docs\\zh\\docs\\how-to\\custom-request-and-route.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "07f4cd29-59b9-5394-a41e-5b474c07e389"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "d23b3aaf-6086-50f7-9eb5-5cd216dc7278",
+          "document_id": "180f3d7d-41a9-4420-8f50-cf20f6f271af",
+          "source_id": "docs\\en\\docs\\how-to\\custom-request-and-route.md",
+          "source_type": "doc",
+          "score": 0.6544,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "c0305956-a177-59fa-807d-dbcef35f40dd",
+          "document_id": "1ca4644c-29ef-4ef3-b724-451c6970a68f",
+          "source_id": "docs_src\\custom_request_and_route\\tutorial001_py310.py",
+          "source_type": "code",
+          "score": 0.5755,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "daa93f9b-64e9-57b8-9843-336d9166f817",
+          "document_id": "9faa643e-97cf-40c5-8e14-04ffb20b74dd",
+          "source_id": "docs_src\\custom_request_and_route\\tutorial001_an_py310.py",
+          "source_type": "code",
+          "score": 0.5755,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "353634dd-16dc-5188-975c-dcf2fb944e6c",
+          "document_id": "20084135-272a-48e1-b0c0-6648318f593a",
+          "source_id": "docs\\es\\docs\\how-to\\custom-request-and-route.md",
+          "source_type": "doc",
+          "score": 0.551,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "07f4cd29-59b9-5394-a41e-5b474c07e389",
+          "document_id": "4e7d290a-f4c3-4a86-993c-da879ded5d0d",
+          "source_id": "docs\\zh\\docs\\how-to\\custom-request-and-route.md",
+          "source_type": "doc",
+          "score": 0.536,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 64.51129999913974,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-006",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where does FastAPI provide conversion of arbitrary Python values to JSON-compatible values?",
+      "expected_relevant_source_ids": [
+        "fastapi\\encoders.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "ac808bdc-a598-588c-a9fb-468ceb67dfb9"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\encoder.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "5c8a914d-976f-5593-9540-c97240746082"
+          ]
+        },
+        {
+          "source_id": "docs_src\\handling_errors\\tutorial003_py310.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "872dee01-66fc-5329-a92d-f56ed2a67096"
+          ]
+        },
+        {
+          "source_id": "fastapi\\responses.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "84910489-c88c-5c9c-b41d-d7119bcbc13b"
+          ]
+        },
+        {
+          "source_id": "docs_src\\body_updates\\tutorial001_py310.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "52ff8fd2-cd32-5ca4-89da-13057207035f"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "ac808bdc-a598-588c-a9fb-468ceb67dfb9",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.7343,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "5c8a914d-976f-5593-9540-c97240746082",
+          "document_id": "ad3ec262-a873-40df-88f7-1e4cb4324920",
+          "source_id": "docs\\en\\docs\\tutorial\\encoder.md",
+          "source_type": "doc",
+          "score": 0.7301,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "872dee01-66fc-5329-a92d-f56ed2a67096",
+          "document_id": "fae0acf8-53ad-4ca6-96ba-41a892d4544c",
+          "source_id": "docs_src\\handling_errors\\tutorial003_py310.py",
+          "source_type": "code",
+          "score": 0.7046,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "84910489-c88c-5c9c-b41d-d7119bcbc13b",
+          "document_id": "c8f60967-bc3c-446a-9693-79663acb90dd",
+          "source_id": "fastapi\\responses.py",
+          "source_type": "code",
+          "score": 0.6941,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "52ff8fd2-cd32-5ca4-89da-13057207035f",
+          "document_id": "dc047a4b-ec6a-4f90-8496-a751a4fc8371",
+          "source_id": "docs_src\\body_updates\\tutorial001_py310.py",
+          "source_type": "code",
+          "score": 0.6941,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 57.77239999952144,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\encoders.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-007",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where does the FastAPI application cache and generate its OpenAPI schema?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "974c8d75-dcf7-5bb0-918a-ceb4aaf2b8b3"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "a871799e-481a-5705-9edc-9ae56d5b780a",
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5"
+          ]
+        },
+        {
+          "source_id": "tests\\benchmarks\\utils.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "4fad3875-4dd9-5412-8a37-f04a54a854b4"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "974c8d75-dcf7-5bb0-918a-ceb4aaf2b8b3",
+          "document_id": "4c50a95e-4598-4f97-b299-ffc66c600e61",
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_type": "doc",
+          "score": 0.7224,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "a871799e-481a-5705-9edc-9ae56d5b780a",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6937,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6904,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "4fad3875-4dd9-5412-8a37-f04a54a854b4",
+          "document_id": "dc660aa7-c929-4bcd-b2df-2453c1ffc089",
+          "source_id": "tests\\benchmarks\\utils.py",
+          "source_type": "code",
+          "score": 0.6552,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 2,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6319,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 68.92280000101891,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-008",
+      "category": "symbol_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which function creates the OpenAPI document from route and metadata inputs?",
+      "expected_relevant_source_ids": [
+        "fastapi\\openapi\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\general.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "cbf1a90f-98bf-5d94-ac5e-ae8ddfa2e44b"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\how-to\\general.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "418935e9-461f-502b-8e29-67fa7bd3af33"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\how-to\\general.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "b6612d4d-12d8-5dea-8835-30131a32d990"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\tutorial\\schema-extra-example.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "c22a3e58-b090-53b4-b0c7-9cdd2651939e"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.7289,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "cbf1a90f-98bf-5d94-ac5e-ae8ddfa2e44b",
+          "document_id": "43aba7ee-26bf-455f-888b-0503695e0acb",
+          "source_id": "docs\\en\\docs\\how-to\\general.md",
+          "source_type": "doc",
+          "score": 0.6795,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "418935e9-461f-502b-8e29-67fa7bd3af33",
+          "document_id": "b8e8b280-ce47-4466-b77d-f588fbdddc54",
+          "source_id": "docs\\es\\docs\\how-to\\general.md",
+          "source_type": "doc",
+          "score": 0.648,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "b6612d4d-12d8-5dea-8835-30131a32d990",
+          "document_id": "0b580521-974c-4224-b48f-3379b04e3ac5",
+          "source_id": "docs\\fr\\docs\\how-to\\general.md",
+          "source_type": "doc",
+          "score": 0.6378,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "c22a3e58-b090-53b4-b0c7-9cdd2651939e",
+          "document_id": "65e4e03b-0c02-457c-99be-60ce4789a24a",
+          "source_id": "docs\\es\\docs\\tutorial\\schema-extra-example.md",
+          "source_type": "doc",
+          "score": 0.6355,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 54.29020000156015,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\openapi\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-009",
+      "category": "class_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which class is the main application object and a Starlette subclass?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "45014207-574b-57b3-b87d-bce801cfa550"
+          ]
+        },
+        {
+          "source_id": "docs\\pt\\docs\\features.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "93c3165d-2ef7-5be0-9d08-1388dbcafeb8"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "2cfd4688-c5bf-5e8a-8282-bffefdad44a1"
+          ]
+        },
+        {
+          "source_id": "fastapi\\middleware\\__init__.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "122e8449-dc2c-599d-bf70-4447a21a81a4"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\features.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "759dce67-0b1a-597d-a822-2eff9e915448"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "45014207-574b-57b3-b87d-bce801cfa550",
+          "document_id": "9fade012-1d15-45db-998f-1cfa445d6fa8",
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_type": "doc",
+          "score": 0.4941,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "93c3165d-2ef7-5be0-9d08-1388dbcafeb8",
+          "document_id": "947eec7c-d40d-489b-af16-04d8bb66c92f",
+          "source_id": "docs\\pt\\docs\\features.md",
+          "source_type": "doc",
+          "score": 0.4913,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "2cfd4688-c5bf-5e8a-8282-bffefdad44a1",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4885,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "122e8449-dc2c-599d-bf70-4447a21a81a4",
+          "document_id": "7ba5826c-d9fb-431b-9210-f8523196e755",
+          "source_id": "fastapi\\middleware\\__init__.py",
+          "source_type": "code",
+          "score": 0.4714,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "759dce67-0b1a-597d-a822-2eff9e915448",
+          "document_id": "ef5b9e9b-ac7b-4381-90bd-9360c90e5f82",
+          "source_id": "docs\\es\\docs\\features.md",
+          "source_type": "doc",
+          "score": 0.4556,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 57.62890000005427,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-010",
+      "category": "class_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which route class represents a FastAPI HTTP path operation?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        },
+        {
+          "source_id": "docs_src\\path_operation_advanced_configuration\\tutorial002_py310.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "83a01423-f1dd-5662-a7f8-629e7e8faaa0"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93",
+            "ebabf939-f8bb-5c04-979c-9a3ecba1fdea"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6859,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "83a01423-f1dd-5662-a7f8-629e7e8faaa0",
+          "document_id": "497c8166-751b-4dc8-b9f9-c5ae77a39bdc",
+          "source_id": "docs_src\\path_operation_advanced_configuration\\tutorial002_py310.py",
+          "source_type": "code",
+          "score": 0.6658,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "ebabf939-f8bb-5c04-979c-9a3ecba1fdea",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6627,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6407,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6399,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 60.00980000135314,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-011",
+      "category": "class_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which class groups path operations for modular inclusion into an application?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\global-dependencies.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "db4a7dc5-633d-5ee5-849e-7bbfe161620c"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "6ca12252-e056-5a49-8b3f-713cf24b830f",
+            "848f3ea1-14e1-525a-9f22-52af227ed4b0"
+          ]
+        },
+        {
+          "source_id": "docs\\ja\\docs\\tutorial\\dependencies\\dependencies-in-path-operation-decorators.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "7479d27a-80e6-5261-a67c-c6c5baf5a55b"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\advanced\\security\\oauth2-scopes.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "bb1c6ee3-aa43-5c50-888a-6c9d3acf5cc5"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "db4a7dc5-633d-5ee5-849e-7bbfe161620c",
+          "document_id": "6d222b3e-3542-40d1-8f08-5cc8e074f922",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\global-dependencies.md",
+          "source_type": "doc",
+          "score": 0.459,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "848f3ea1-14e1-525a-9f22-52af227ed4b0",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.4487,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "6ca12252-e056-5a49-8b3f-713cf24b830f",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.4255,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "7479d27a-80e6-5261-a67c-c6c5baf5a55b",
+          "document_id": "e65b3d6e-b4c4-4bef-b7be-d4762505c5fb",
+          "source_id": "docs\\ja\\docs\\tutorial\\dependencies\\dependencies-in-path-operation-decorators.md",
+          "source_type": "doc",
+          "score": 0.421,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "bb1c6ee3-aa43-5c50-888a-6c9d3acf5cc5",
+          "document_id": "2ceda7b6-a5f1-49a0-aabe-d084701c1e31",
+          "source_id": "docs\\es\\docs\\advanced\\security\\oauth2-scopes.md",
+          "source_type": "doc",
+          "score": 0.4189,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 62.8166999995301,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-012",
+      "category": "class_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which FastAPI type extends Starlette’s uploaded-file object and documents file access?",
+      "expected_relevant_source_ids": [
+        "fastapi\\datastructures.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "fastapi\\datastructures.py",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "63c05074-24f4-52d1-9ff2-f9b91ac30a58"
+          ]
+        },
+        {
+          "source_id": "docs_src\\request_forms_and_files\\tutorial001_an_py310.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "fe2987e4-7d48-5c42-bb7a-4e423340dff2"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "45014207-574b-57b3-b87d-bce801cfa550"
+          ]
+        },
+        {
+          "source_id": "docs_src\\request_forms_and_files\\tutorial001_py310.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "f30abbfe-4965-5723-b700-f13c216ece44"
+          ]
+        },
+        {
+          "source_id": "docs_src\\request_files\\tutorial001_03_py310.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "93b93194-2317-5a75-a495-0ecd76ea05bd"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "63c05074-24f4-52d1-9ff2-f9b91ac30a58",
+          "document_id": "4a191c73-ee8a-40c0-8f0a-9a2a2f68f628",
+          "source_id": "fastapi\\datastructures.py",
+          "source_type": "code",
+          "score": 0.6143,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "fe2987e4-7d48-5c42-bb7a-4e423340dff2",
+          "document_id": "b62e884a-32e0-418b-8ebd-c794937dc8b0",
+          "source_id": "docs_src\\request_forms_and_files\\tutorial001_an_py310.py",
+          "source_type": "code",
+          "score": 0.601,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "45014207-574b-57b3-b87d-bce801cfa550",
+          "document_id": "9fade012-1d15-45db-998f-1cfa445d6fa8",
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_type": "doc",
+          "score": 0.5958,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "f30abbfe-4965-5723-b700-f13c216ece44",
+          "document_id": "ca8513df-926c-43dc-b519-438a4f1ebd92",
+          "source_id": "docs_src\\request_forms_and_files\\tutorial001_py310.py",
+          "source_type": "code",
+          "score": 0.5845,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "93b93194-2317-5a75-a495-0ecd76ea05bd",
+          "document_id": "16779741-d6dd-4cef-945e-2a20e9fd3493",
+          "source_id": "docs_src\\request_files\\tutorial001_03_py310.py",
+          "source_type": "code",
+          "score": 0.5838,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 53.549399999610614,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-013",
+      "category": "class_lookup",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where is the OAuth2 bearer-token dependency class implemented?",
+      "expected_relevant_source_ids": [
+        "fastapi\\security\\oauth2.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "fastapi\\security\\oauth2.py",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "3d53847e-227e-5ff0-b7a7-620469891084",
+            "60d4b03f-f3ed-52fd-bef8-c3e1436c15ef"
+          ]
+        },
+        {
+          "source_id": "fastapi\\openapi\\models.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "4533ab54-c91d-5984-99ee-a1b48fcec888",
+            "e0678530-d3ea-55e4-bcb1-246d59b0fbc9"
+          ]
+        },
+        {
+          "source_id": "fastapi\\security\\http.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "e1522672-5b8c-51aa-aa4b-6a03831b25e3"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "3d53847e-227e-5ff0-b7a7-620469891084",
+          "document_id": "75e8c532-e092-4969-a62c-4ef6e593eb1e",
+          "source_id": "fastapi\\security\\oauth2.py",
+          "source_type": "code",
+          "score": 0.6289,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "60d4b03f-f3ed-52fd-bef8-c3e1436c15ef",
+          "document_id": "75e8c532-e092-4969-a62c-4ef6e593eb1e",
+          "source_id": "fastapi\\security\\oauth2.py",
+          "source_type": "code",
+          "score": 0.6194,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "e0678530-d3ea-55e4-bcb1-246d59b0fbc9",
+          "document_id": "0bb29cbc-984c-48c4-979f-695ca253a610",
+          "source_id": "fastapi\\openapi\\models.py",
+          "source_type": "code",
+          "score": 0.5648,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "e1522672-5b8c-51aa-aa4b-6a03831b25e3",
+          "document_id": "7d2177f5-aa78-4d8a-9c3c-5f68b83a851b",
+          "source_id": "fastapi\\security\\http.py",
+          "source_type": "code",
+          "score": 0.5545,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 2,
+          "chunk_id": "4533ab54-c91d-5984-99ee-a1b48fcec888",
+          "document_id": "0bb29cbc-984c-48c4-979f-695ca253a610",
+          "source_id": "fastapi\\openapi\\models.py",
+          "source_type": "code",
+          "score": 0.547,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 57.82519999957003,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-014",
+      "category": "configuration_dependency",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which packages are required by the FastAPI project itself at runtime?",
+      "expected_relevant_source_ids": [
+        "pyproject.toml"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "5ae69a60-e7e8-5b15-86c4-adf1b8c6faec"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "1783940d-22b0-5505-9e09-4d6d3f4d8501",
+            "35303d59-ce8d-51a2-afff-acbf2186f537",
+            "43fa155c-05b6-5f97-8040-9a412c1d5429"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "803fd23c-86d4-5d00-8d85-48e64525d5a5"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "5ae69a60-e7e8-5b15-86c4-adf1b8c6faec",
+          "document_id": "4c50a95e-4598-4f97-b299-ffc66c600e61",
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_type": "doc",
+          "score": 0.6617,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "43fa155c-05b6-5f97-8040-9a412c1d5429",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6614,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "35303d59-ce8d-51a2-afff-acbf2186f537",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6606,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "1783940d-22b0-5505-9e09-4d6d3f4d8501",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6567,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "803fd23c-86d4-5d00-8d85-48e64525d5a5",
+          "document_id": "13ba8240-5ac8-4b48-964b-a34e79d54ad5",
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_type": "doc",
+          "score": 0.6549,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 58.81220000082976,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "pyproject.toml"
+      ]
+    },
+    {
+      "query_id": "RMV1-015",
+      "category": "configuration_dependency",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which optional extra provides the standard bundle of CLI, server, test-client, and integration dependencies?",
+      "expected_relevant_source_ids": [
+        "pyproject.toml"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\features.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "84e3b113-4872-562a-a8e3-c24c6030b6bf"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "207163c0-bcad-56c0-b8bb-d8157a530492",
+            "803fd23c-86d4-5d00-8d85-48e64525d5a5",
+            "cfbd58be-5294-5c01-a086-e77ba1ec9e26"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\index.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "9a3f2b90-5269-522f-87ea-fefae3600d55"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "84e3b113-4872-562a-a8e3-c24c6030b6bf",
+          "document_id": "142c101f-4158-4b4b-acc6-69370462f4c6",
+          "source_id": "docs\\en\\docs\\features.md",
+          "source_type": "doc",
+          "score": 0.5346,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "cfbd58be-5294-5c01-a086-e77ba1ec9e26",
+          "document_id": "13ba8240-5ac8-4b48-964b-a34e79d54ad5",
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_type": "doc",
+          "score": 0.4365,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "9a3f2b90-5269-522f-87ea-fefae3600d55",
+          "document_id": "3c1dfb29-86e6-4394-9b4e-ac9cb6c82b00",
+          "source_id": "docs\\de\\docs\\index.md",
+          "source_type": "doc",
+          "score": 0.4289,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "207163c0-bcad-56c0-b8bb-d8157a530492",
+          "document_id": "13ba8240-5ac8-4b48-964b-a34e79d54ad5",
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_type": "doc",
+          "score": 0.4235,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 2,
+          "chunk_id": "803fd23c-86d4-5d00-8d85-48e64525d5a5",
+          "document_id": "13ba8240-5ac8-4b48-964b-a34e79d54ad5",
+          "source_id": "docs\\en\\docs\\index.md",
+          "source_type": "doc",
+          "score": 0.423,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 63.79689999994298,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "pyproject.toml"
+      ]
+    },
+    {
+      "query_id": "RMV1-016",
+      "category": "configuration_dependency",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which optional package is required when handling form data and uploaded files?",
+      "expected_relevant_source_ids": [
+        "pyproject.toml"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\hi\\docs\\tutorial\\request-files.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "40fcb5af-13ec-54ad-9696-b24ab25bf69b"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\request-files.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "a96ce5d2-8719-52b2-bb59-d06718b31b38"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\request-forms-and-files.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "eb512889-3516-54ec-a6df-f4024f7f3f44"
+          ]
+        },
+        {
+          "source_id": "docs\\tr\\docs\\tutorial\\request-files.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "3823cdd9-68ca-5627-a82a-066063ed2832"
+          ]
+        },
+        {
+          "source_id": "docs\\ko\\docs\\tutorial\\request-files.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "440f29b6-46c7-5efe-9af1-a99f96bf118d"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "40fcb5af-13ec-54ad-9696-b24ab25bf69b",
+          "document_id": "090fed74-781e-4e1d-9ac7-2c52231ecb73",
+          "source_id": "docs\\hi\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5443,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "a96ce5d2-8719-52b2-bb59-d06718b31b38",
+          "document_id": "3175f31e-af58-4aa7-ad55-7f03189bda17",
+          "source_id": "docs\\fr\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5013,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "eb512889-3516-54ec-a6df-f4024f7f3f44",
+          "document_id": "9c42775e-d07c-4af0-98b5-2998ff4e30e8",
+          "source_id": "docs\\en\\docs\\tutorial\\request-forms-and-files.md",
+          "source_type": "doc",
+          "score": 0.4914,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "3823cdd9-68ca-5627-a82a-066063ed2832",
+          "document_id": "039680be-3426-4fba-8e85-5c4ddf194867",
+          "source_id": "docs\\tr\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.4824,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "440f29b6-46c7-5efe-9af1-a99f96bf118d",
+          "document_id": "c0f82b89-c91b-4893-b891-f4f9672d7cf5",
+          "source_id": "docs\\ko\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.4813,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 61.850300000514835,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "pyproject.toml"
+      ]
+    },
+    {
+      "query_id": "RMV1-017",
+      "category": "configuration_dependency",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where is the Query parameter metadata class defined?",
+      "expected_relevant_source_ids": [
+        "fastapi\\params.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\query-params-str-validations.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "351d0276-ea1a-5f75-a67f-1ffe4e4b96e0"
+          ]
+        },
+        {
+          "source_id": "fastapi\\openapi\\models.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "4a35080c-1a88-5983-b6d8-feaf5eb85d08"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\query-params.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "84580276-59af-5691-8756-c6c1699d2544"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\query-params.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "b362e28f-ed42-5050-86e9-f6b015ff3618"
+          ]
+        },
+        {
+          "source_id": "fastapi\\params.py",
+          "source_rank": 5,
+          "relevant": true,
+          "chunk_ids": [
+            "e9fd153b-2250-5ed6-a25c-c66ad1235bb5"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "351d0276-ea1a-5f75-a67f-1ffe4e4b96e0",
+          "document_id": "da4aaa9e-51c3-494e-b95a-a34f5f56fe3f",
+          "source_id": "docs\\de\\docs\\tutorial\\query-params-str-validations.md",
+          "source_type": "doc",
+          "score": 0.5377,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "4a35080c-1a88-5983-b6d8-feaf5eb85d08",
+          "document_id": "0bb29cbc-984c-48c4-979f-695ca253a610",
+          "source_id": "fastapi\\openapi\\models.py",
+          "source_type": "code",
+          "score": 0.5158,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "84580276-59af-5691-8756-c6c1699d2544",
+          "document_id": "a15188f0-e657-479f-8754-4b37c9f61f4f",
+          "source_id": "docs\\en\\docs\\tutorial\\query-params.md",
+          "source_type": "doc",
+          "score": 0.5097,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "b362e28f-ed42-5050-86e9-f6b015ff3618",
+          "document_id": "ae27a273-2034-42a4-a85b-4212796ec7b4",
+          "source_id": "docs\\de\\docs\\tutorial\\query-params.md",
+          "source_type": "doc",
+          "score": 0.5,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "e9fd153b-2250-5ed6-a25c-c66ad1235bb5",
+          "document_id": "cc162f66-5e72-40ad-abdf-bc49e3c574a9",
+          "source_id": "fastapi\\params.py",
+          "source_type": "code",
+          "score": 0.4993,
+          "relevant_source": true
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 0.2,
+      "ndcg_at_5": 0.38685280723454163,
+      "retrieval_latency_ms": 56.27699999968172,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-018",
+      "category": "configuration_dependency",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which marker class declares a dependency in endpoint parameter annotations?",
+      "expected_relevant_source_ids": [
+        "fastapi\\params.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "tests\\test_dependencies_utils.py",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "faa74a91-1a23-5ac0-a5bf-bf7118e20ba2"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\index.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "dfb2e258-a637-5d37-8efe-01e080195728"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\classes-as-dependencies.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "4bffce89-3bb3-5dce-a4b8-cc081f6cad72"
+          ]
+        },
+        {
+          "source_id": "fastapi\\dependencies\\utils.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "0408681b-23ed-52ff-be29-feaa2f39588b"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\dependencies\\index.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "296a5e4d-0413-598d-810e-e0da90da6fb4"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "faa74a91-1a23-5ac0-a5bf-bf7118e20ba2",
+          "document_id": "bfcdb2e8-56bd-44cb-b376-e002491a14e9",
+          "source_id": "tests\\test_dependencies_utils.py",
+          "source_type": "code",
+          "score": 0.4443,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "dfb2e258-a637-5d37-8efe-01e080195728",
+          "document_id": "d9b29959-a97e-44db-8917-28f7214ad676",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\index.md",
+          "source_type": "doc",
+          "score": 0.4374,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "4bffce89-3bb3-5dce-a4b8-cc081f6cad72",
+          "document_id": "18b8d52f-1485-4f61-996e-5deb1ea0f7f1",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\classes-as-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4359,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "0408681b-23ed-52ff-be29-feaa2f39588b",
+          "document_id": "15267744-a4ff-4678-acaf-1d16868c0ec5",
+          "source_id": "fastapi\\dependencies\\utils.py",
+          "source_type": "code",
+          "score": 0.4344,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "296a5e4d-0413-598d-810e-e0da90da6fb4",
+          "document_id": "d8d47c68-2d01-4f77-aa9b-f883c6f8dd0e",
+          "source_id": "docs\\de\\docs\\tutorial\\dependencies\\index.md",
+          "source_type": "doc",
+          "score": 0.4339,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 70.87620000129391,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\params.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-019",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where does FastAPI forward add_api_route configuration to its underlying router?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs_src\\path_operation_advanced_configuration\\tutorial002_py310.py",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "83a01423-f1dd-5662-a7f8-629e7e8faaa0"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+            "ebabf939-f8bb-5c04-979c-9a3ecba1fdea"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "afbbb83f-68d7-58fc-9c21-8af7b78f937b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "83a01423-f1dd-5662-a7f8-629e7e8faaa0",
+          "document_id": "497c8166-751b-4dc8-b9f9-c5ae77a39bdc",
+          "source_id": "docs_src\\path_operation_advanced_configuration\\tutorial002_py310.py",
+          "source_type": "code",
+          "score": 0.762,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "ebabf939-f8bb-5c04-979c-9a3ecba1fdea",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.7599,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.7573,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "afbbb83f-68d7-58fc-9c21-8af7b78f937b",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.7471,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.7434,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 57.26500000127999,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-020",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where is the decorator that registers an API route on a router implemented?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+            "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "ebabf939-f8bb-5c04-979c-9a3ecba1fdea",
+            "f3d4487f-b856-54a1-8986-f2a436b90241"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "f3d4487f-b856-54a1-8986-f2a436b90241",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6643,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "ebabf939-f8bb-5c04-979c-9a3ecba1fdea",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.663,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 1,
+          "chunk_id": "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6328,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 1,
+          "chunk_id": "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6211,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6101,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 59.7713000006479,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-021",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does an application include an APIRouter and propagate its route configuration?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "f3d4487f-b856-54a1-8986-f2a436b90241"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "99f95115-03bc-5d83-93ab-fc217903e04a",
+            "afbbb83f-68d7-58fc-9c21-8af7b78f937b"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "42d90872-2b2a-524d-bb1c-4f2f0ed8e4a1",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6937,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "f3d4487f-b856-54a1-8986-f2a436b90241",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6537,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "99f95115-03bc-5d83-93ab-fc217903e04a",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.6372,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "afbbb83f-68d7-58fc-9c21-8af7b78f937b",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.6333,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6269,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 59.689900001103524,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-022",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where are WebSocket endpoints wrapped and registered as FastAPI routes?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\reference\\apirouter.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "7ba140d8-dd9f-52cf-ad2b-639882c1dff2"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\reference\\fastapi.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "32e7ce29-4955-5efb-87be-96aeb95bf899"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "a6f824a6-e150-563c-a692-1766c444510a",
+            "dd28f0c8-d4a6-5184-9758-70cdf41b939a"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\advanced\\websockets.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "8aab915d-5249-589c-ba57-856d7dbff2b4"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "7ba140d8-dd9f-52cf-ad2b-639882c1dff2",
+          "document_id": "58d03c33-6682-43ce-a346-e52d66d5b012",
+          "source_id": "docs\\en\\docs\\reference\\apirouter.md",
+          "source_type": "doc",
+          "score": 0.7064,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "32e7ce29-4955-5efb-87be-96aeb95bf899",
+          "document_id": "83ead2e8-222d-40c4-bfe2-15a2a57a774a",
+          "source_id": "docs\\en\\docs\\reference\\fastapi.md",
+          "source_type": "doc",
+          "score": 0.6191,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "a6f824a6-e150-563c-a692-1766c444510a",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.615,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "8aab915d-5249-589c-ba57-856d7dbff2b4",
+          "document_id": "20716964-f89d-4332-b83a-e1074470ba58",
+          "source_id": "docs\\es\\docs\\advanced\\websockets.md",
+          "source_type": "doc",
+          "score": 0.6113,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "dd28f0c8-d4a6-5184-9758-70cdf41b939a",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5859,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 58.99330000102054,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-023",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Where are the OpenAPI JSON, Swagger UI, and ReDoc routes attached to an application?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\how-to\\custom-docs-ui-assets.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "06048a8e-5ca3-565b-9728-9bad0824c81b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\reference\\openapi\\docs.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "24ac826a-6788-57eb-90f8-f0d63685c723"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "cfd9eb66-9d0c-587a-9055-6193ae97dd3a"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "06048a8e-5ca3-565b-9728-9bad0824c81b",
+          "document_id": "461de531-5a83-4db1-9a8e-a7226f32bdf7",
+          "source_id": "docs\\en\\docs\\how-to\\custom-docs-ui-assets.md",
+          "source_type": "doc",
+          "score": 0.7247,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "24ac826a-6788-57eb-90f8-f0d63685c723",
+          "document_id": "ef54f446-1fbd-4bfb-9db3-5a52c32363a1",
+          "source_id": "docs\\en\\docs\\reference\\openapi\\docs.md",
+          "source_type": "doc",
+          "score": 0.7178,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "cfd9eb66-9d0c-587a-9055-6193ae97dd3a",
+          "document_id": "4c50a95e-4598-4f97-b299-ffc66c600e61",
+          "source_id": "docs\\en\\docs\\tutorial\\first-steps.md",
+          "source_type": "doc",
+          "score": 0.6787,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6677,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6643,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 52.52979999931995,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-024",
+      "category": "api_routing",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which OpenAPI helper turns endpoint parameter fields into operation parameters?",
+      "expected_relevant_source_ids": [
+        "fastapi\\openapi\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5",
+            "e28e8f00-b88a-54e3-8b77-0a3b20a7f3bd"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "2bfb687c-f454-55f4-bec8-cd9d585f0800"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\reference\\openapi\\index.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "7c0bf165-07cb-5513-8d20-f570a4b9c100"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\schema-extra-example.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "57245b0c-d284-510a-94c7-2872b2a508ce"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6981,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "2bfb687c-f454-55f4-bec8-cd9d585f0800",
+          "document_id": "d1e564a3-204c-40d4-87ec-a0c7f4b718aa",
+          "source_id": "docs\\es\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6586,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "7c0bf165-07cb-5513-8d20-f570a4b9c100",
+          "document_id": "59fca50a-ec52-4768-abd3-378b20c23ef4",
+          "source_id": "docs\\en\\docs\\reference\\openapi\\index.md",
+          "source_type": "doc",
+          "score": 0.6418,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "57245b0c-d284-510a-94c7-2872b2a508ce",
+          "document_id": "9726fb64-88b7-4493-a35a-49ad525f3b7d",
+          "source_id": "docs\\fr\\docs\\tutorial\\schema-extra-example.md",
+          "source_type": "doc",
+          "score": 0.6104,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "e28e8f00-b88a-54e3-8b77-0a3b20a7f3bd",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6055,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 51.96500000056403,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\openapi\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-025",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does dependency resolution avoid calling the same cached dependency more than once?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "a6aea643-9382-515b-80d5-83ca75356b20"
+          ]
+        },
+        {
+          "source_id": "docs\\hi\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "44c27258-3c4e-56ab-81a7-bfd61f42fd0f"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "86678f65-5666-559e-96a6-504add0de453"
+          ]
+        },
+        {
+          "source_id": "docs\\ko\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "ee69827e-2daf-59fb-8610-039f3860c976"
+          ]
+        },
+        {
+          "source_id": "tests\\test_dependency_models.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "63a9c397-81fc-5f32-8874-b880f1602fb4"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "a6aea643-9382-515b-80d5-83ca75356b20",
+          "document_id": "14dfeb94-4f55-469f-814c-f03266e7f17e",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.5919,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "44c27258-3c4e-56ab-81a7-bfd61f42fd0f",
+          "document_id": "264b2116-6fab-44a7-ae74-e6acd5f1d77a",
+          "source_id": "docs\\hi\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.533,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "86678f65-5666-559e-96a6-504add0de453",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5248,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "ee69827e-2daf-59fb-8610-039f3860c976",
+          "document_id": "efca8063-d106-43a6-9d60-4f860102b268",
+          "source_id": "docs\\ko\\docs\\tutorial\\dependencies\\sub-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4963,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "63a9c397-81fc-5f32-8874-b880f1602fb4",
+          "document_id": "d9e50837-95df-487a-b944-4d3293da7876",
+          "source_id": "tests\\test_dependency_models.py",
+          "source_type": "code",
+          "score": 0.4877,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 53.81639999905019,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-026",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does FastAPI ensure a dependency using yield is finalized after its selected scope?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py",
+        "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "d069635b-27a0-505b-8a69-a495903833b6"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "48fead65-e802-5b29-a7f5-8afc4fd79c9b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 3,
+          "relevant": true,
+          "chunk_ids": [
+            "9a89a8ee-4c46-5cea-a9b7-3cdceb959508",
+            "c1d9b282-c3d2-5363-89db-71a465370b11"
+          ]
+        },
+        {
+          "source_id": "fastapi\\.agents\\skills\\fastapi\\references\\dependencies.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "532057f0-3121-527d-b123-3b19f24bab36"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "d069635b-27a0-505b-8a69-a495903833b6",
+          "document_id": "a4b76914-f242-4f12-b300-e2c5dc5c01c5",
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.7477,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "48fead65-e802-5b29-a7f5-8afc4fd79c9b",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.7109,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "9a89a8ee-4c46-5cea-a9b7-3cdceb959508",
+          "document_id": "9c9d7054-8a87-45f5-9be3-b9fd6c848296",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.6768,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "532057f0-3121-527d-b123-3b19f24bab36",
+          "document_id": "3554991e-4faf-4e89-b43a-a38f80e68dd1",
+          "source_id": "fastapi\\.agents\\skills\\fastapi\\references\\dependencies.md",
+          "source_type": "doc",
+          "score": 0.6529,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "c1d9b282-c3d2-5363-89db-71a465370b11",
+          "document_id": "9c9d7054-8a87-45f5-9be3-b9fd6c848296",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.6471,
+          "relevant_source": true
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 0.3333333333333333,
+      "ndcg_at_5": 0.3065735963827292,
+      "retrieval_latency_ms": 54.35339999894495,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-027",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What does response_model do to returned endpoint data before it is sent?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\response-model.md",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\hi\\docs\\tutorial\\response-model.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "600fc8ff-0ede-58af-b0b5-499aff783dd2"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "5349703c-9845-5649-90ef-3ccc2a999a1f"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_rank": 3,
+          "relevant": true,
+          "chunk_ids": [
+            "09ffdac5-0aaf-5f98-ac16-20419100e902",
+            "83286208-9655-5114-a1e7-2b1063470c93"
+          ]
+        },
+        {
+          "source_id": "docs\\tr\\docs\\tutorial\\response-model.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "6c483558-4790-5a68-88f1-2812da703299"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "600fc8ff-0ede-58af-b0b5-499aff783dd2",
+          "document_id": "34abaacf-55e8-48d2-a406-152b7f58ca49",
+          "source_id": "docs\\hi\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.534,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "5349703c-9845-5649-90ef-3ccc2a999a1f",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5295,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "83286208-9655-5114-a1e7-2b1063470c93",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4992,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "09ffdac5-0aaf-5f98-ac16-20419100e902",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4952,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "6c483558-4790-5a68-88f1-2812da703299",
+          "document_id": "e9669e17-f3ea-46c2-8321-3257122c9c3d",
+          "source_id": "docs\\tr\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4939,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 0.3333333333333333,
+      "ndcg_at_5": 0.3065735963827292,
+      "retrieval_latency_ms": 52.7062000001024,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-028",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How can FastAPI encode values such as dates and Pydantic models into JSON-compatible structures?",
+      "expected_relevant_source_ids": [
+        "fastapi\\encoders.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs_src\\response_directly\\tutorial001_py310.py",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "ae36048f-17c3-5a24-b0f1-50c9000fd315"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\encoder.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "ae81d28a-ed68-5ee4-93e8-6b0d4048f340"
+          ]
+        },
+        {
+          "source_id": "docs_src\\body_updates\\tutorial002_py310.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "faf356c4-9c2d-552f-ab2d-2a4de11027a8"
+          ]
+        },
+        {
+          "source_id": "docs_src\\body_updates\\tutorial001_py310.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "52ff8fd2-cd32-5ca4-89da-13057207035f"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\response-directly.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "51df9e3f-be8d-56cf-b6df-e3bba41e6f36"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "ae36048f-17c3-5a24-b0f1-50c9000fd315",
+          "document_id": "da1002d6-d684-4b8d-9870-4efd38fbacf5",
+          "source_id": "docs_src\\response_directly\\tutorial001_py310.py",
+          "source_type": "code",
+          "score": 0.8133,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "ae81d28a-ed68-5ee4-93e8-6b0d4048f340",
+          "document_id": "ad3ec262-a873-40df-88f7-1e4cb4324920",
+          "source_id": "docs\\en\\docs\\tutorial\\encoder.md",
+          "source_type": "doc",
+          "score": 0.7988,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "faf356c4-9c2d-552f-ab2d-2a4de11027a8",
+          "document_id": "a3b6062a-d2ec-42fe-8629-1a01929b3e70",
+          "source_id": "docs_src\\body_updates\\tutorial002_py310.py",
+          "source_type": "code",
+          "score": 0.7944,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "52ff8fd2-cd32-5ca4-89da-13057207035f",
+          "document_id": "dc047a4b-ec6a-4f90-8496-a751a4fc8371",
+          "source_id": "docs_src\\body_updates\\tutorial001_py310.py",
+          "source_type": "code",
+          "score": 0.7944,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "51df9e3f-be8d-56cf-b6df-e3bba41e6f36",
+          "document_id": "22e4f4bd-fa54-4dfd-a3c1-3d07c2730d95",
+          "source_id": "docs\\en\\docs\\advanced\\response-directly.md",
+          "source_type": "doc",
+          "score": 0.79,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 49.26520000117307,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\encoders.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-029",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What interface does an uploaded file expose for filename, content type, and reading its underlying file?",
+      "expected_relevant_source_ids": [
+        "fastapi\\datastructures.py",
+        "docs\\en\\docs\\tutorial\\request-files.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\reference\\uploadfile.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "007bded5-0d7e-5baa-a451-fc8905718e35"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\request-files.md",
+          "source_rank": 2,
+          "relevant": true,
+          "chunk_ids": [
+            "358ab078-6c11-54ad-98fa-f20d3df0d7cf"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\request-files.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "07ad9c64-a26f-5495-ba4c-7545a5d2e541"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\request-files.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "6e09e915-c0a1-5ce5-b148-14922f126468"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\advanced\\custom-response.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "10ee4e73-67f5-5063-b3d3-9b0b6226851a"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "007bded5-0d7e-5baa-a451-fc8905718e35",
+          "document_id": "c71f4d9b-f776-47fb-b9ef-0b15263a51de",
+          "source_id": "docs\\en\\docs\\reference\\uploadfile.md",
+          "source_type": "doc",
+          "score": 0.5275,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "358ab078-6c11-54ad-98fa-f20d3df0d7cf",
+          "document_id": "7ef6cea5-615c-42e3-ab7a-3bffca8a3f1e",
+          "source_id": "docs\\en\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5145,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "07ad9c64-a26f-5495-ba4c-7545a5d2e541",
+          "document_id": "bf77d583-1a79-41be-a84f-19c178f7e1d0",
+          "source_id": "docs\\de\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5128,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "6e09e915-c0a1-5ce5-b148-14922f126468",
+          "document_id": "3175f31e-af58-4aa7-ad55-7f03189bda17",
+          "source_id": "docs\\fr\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5094,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "10ee4e73-67f5-5063-b3d3-9b0b6226851a",
+          "document_id": "588699f7-ff14-475c-b3df-2df7fa90b31d",
+          "source_id": "docs\\fr\\docs\\advanced\\custom-response.md",
+          "source_type": "doc",
+          "score": 0.472,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.38685280723454163,
+      "retrieval_latency_ms": 53.938300001391326,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\datastructures.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-030",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How are background tasks added to a response and combined when dependencies also declare tasks?",
+      "expected_relevant_source_ids": [
+        "fastapi\\background.py",
+        "docs\\en\\docs\\tutorial\\background-tasks.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\background-tasks.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "32bfebff-510e-5f0a-bdd9-a8d9eb454e2c"
+          ]
+        },
+        {
+          "source_id": "docs\\ja\\docs\\tutorial\\background-tasks.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "81468155-ea36-5092-9802-144e865db394"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "caa7a893-0f91-5937-a00f-9e6e0f520a5b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "8cec264e-3c9f-5911-973d-d9e8061776ac"
+          ]
+        },
+        {
+          "source_id": "tests\\test_response_dependency.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "25aa229b-50b0-516e-8af7-be190c4dc557"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "32bfebff-510e-5f0a-bdd9-a8d9eb454e2c",
+          "document_id": "942c06d1-0689-411c-b97f-cf275817044c",
+          "source_id": "docs\\en\\docs\\tutorial\\background-tasks.md",
+          "source_type": "doc",
+          "score": 0.6177,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "81468155-ea36-5092-9802-144e865db394",
+          "document_id": "6dfcb6b1-3619-40c0-8a6c-634cf4d20a6c",
+          "source_id": "docs\\ja\\docs\\tutorial\\background-tasks.md",
+          "source_type": "doc",
+          "score": 0.6074,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "caa7a893-0f91-5937-a00f-9e6e0f520a5b",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6042,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "8cec264e-3c9f-5911-973d-d9e8061776ac",
+          "document_id": "a4b76914-f242-4f12-b300-e2c5dc5c01c5",
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.58,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "25aa229b-50b0-516e-8af7-be190c4dc557",
+          "document_id": "23421a70-2237-4770-be4e-16d22035e78d",
+          "source_id": "tests\\test_response_dependency.py",
+          "source_type": "code",
+          "score": 0.5684,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.6131471927654584,
+      "retrieval_latency_ms": 54.66150000029302,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\background.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-031",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does the documented CORS middleware handle browser preflight requests?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\cors.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "081b9881-59a5-557b-be19-c5bd3014c3c8",
+            "52b88d8b-c774-519f-aa40-e1d191ba706b",
+            "e7ded77a-a649-5dc2-94e5-98c24361a169"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\tutorial\\cors.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "b5ba491e-8b0c-5895-a051-9653ba7d1318"
+          ]
+        },
+        {
+          "source_id": "docs\\ko\\docs\\tutorial\\cors.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "d922be6d-d924-5a8f-8520-a16c7df26a2e"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "52b88d8b-c774-519f-aa40-e1d191ba706b",
+          "document_id": "6ef38ecc-b94a-4413-94ed-5b5da93790cb",
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.8317,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "e7ded77a-a649-5dc2-94e5-98c24361a169",
+          "document_id": "6ef38ecc-b94a-4413-94ed-5b5da93790cb",
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.6153,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 1,
+          "chunk_id": "081b9881-59a5-557b-be19-c5bd3014c3c8",
+          "document_id": "6ef38ecc-b94a-4413-94ed-5b5da93790cb",
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.6104,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "b5ba491e-8b0c-5895-a051-9653ba7d1318",
+          "document_id": "44d86cba-9f7f-4322-ab11-e7e75c572c5c",
+          "source_id": "docs\\es\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.6064,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "d922be6d-d924-5a8f-8520-a16c7df26a2e",
+          "document_id": "404647c2-c560-4f09-8f61-4c79149ef020",
+          "source_id": "docs\\ko\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.5907,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 57.130099999994854,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-032",
+      "category": "behavior",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How can a route be kept out of generated OpenAPI while still being registered?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py",
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "fastapi\\openapi\\utils.py",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "2db632a0-bc8f-5cd1-a907-1929f2f49ad9",
+            "81b561a9-23f8-54e8-8e7c-0998008eee40"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+            "84878ce9-3631-5011-ad34-9fe5030141b6"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "81b561a9-23f8-54e8-8e7c-0998008eee40",
+          "document_id": "6d72b360-96c3-4823-85c5-938381e84f1e",
+          "source_id": "fastapi\\openapi\\utils.py",
+          "source_type": "code",
+          "score": 0.6751,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6568,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "84878ce9-3631-5011-ad34-9fe5030141b6",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6031,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.5846,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "2db632a0-bc8f-5cd1-a907-1929f2f49ad9",
+          "document_id": "6d72b360-96c3-4823-85c5-938381e84f1e",
+          "source_id": "fastapi\\openapi\\utils.py",
+          "source_type": "code",
+          "score": 0.5722,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 60.100999999121996,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py",
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-033",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does the FastAPI application method pass response-model and status metadata into route construction?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93",
+            "ebabf939-f8bb-5c04-979c-9a3ecba1fdea"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6946,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.6893,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.6832,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 1,
+          "chunk_id": "ebabf939-f8bb-5c04-979c-9a3ecba1fdea",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6692,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6558,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 57.100699999864446,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-034",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How do included router prefixes and dependencies become part of the application’s route set?",
+      "expected_relevant_source_ids": [
+        "fastapi\\routing.py",
+        "docs\\en\\docs\\tutorial\\bigger-applications.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "4f739782-51ca-57da-95f2-66739bbeec47",
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "84878ce9-3631-5011-ad34-9fe5030141b6"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 2,
+          "relevant": true,
+          "chunk_ids": [
+            "848f3ea1-14e1-525a-9f22-52af227ed4b0",
+            "99f95115-03bc-5d83-93ab-fc217903e04a"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "4f739782-51ca-57da-95f2-66739bbeec47",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6488,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "848f3ea1-14e1-525a-9f22-52af227ed4b0",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.5957,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 1,
+          "chunk_id": "84878ce9-3631-5011-ad34-9fe5030141b6",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5762,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "99f95115-03bc-5d83-93ab-fc217903e04a",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.5753,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5638,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.38685280723454163,
+      "retrieval_latency_ms": 53.37409999992815,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-035",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How are dependency declarations discovered and later executed for a request?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "d077c2a0-f8ef-58b7-9cfa-9ee22a2dce29"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\classes-as-dependencies.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "84b0212a-7012-5261-b413-d3e99772d62f"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "6e14c330-073d-560d-bc1d-8e13ee04c437"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "86678f65-5666-559e-96a6-504add0de453"
+          ]
+        },
+        {
+          "source_id": "tests\\test_dependency_models.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "29a7cf5f-9436-590e-99a4-75fcc95104fa"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "d077c2a0-f8ef-58b7-9cfa-9ee22a2dce29",
+          "document_id": "e41e8edf-898f-4027-8f94-56d073e2b086",
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.5017,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "84b0212a-7012-5261-b413-d3e99772d62f",
+          "document_id": "18b8d52f-1485-4f61-996e-5deb1ea0f7f1",
+          "source_id": "docs\\en\\docs\\tutorial\\dependencies\\classes-as-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4865,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "6e14c330-073d-560d-bc1d-8e13ee04c437",
+          "document_id": "a4b76914-f242-4f12-b300-e2c5dc5c01c5",
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4722,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "86678f65-5666-559e-96a6-504add0de453",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4673,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "29a7cf5f-9436-590e-99a4-75fcc95104fa",
+          "document_id": "d9e50837-95df-487a-b944-4d3293da7876",
+          "source_id": "tests\\test_dependency_models.py",
+          "source_type": "code",
+          "score": 0.4671,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 56.28260000048613,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-036",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does FastAPI connect route metadata to generated OpenAPI paths and operations?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\openapi\\utils.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "b3336570-7e3f-5a58-b03e-2d55e81124de"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "45b8e168-96be-576c-b88f-baafe88e60c5"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+            "84878ce9-3631-5011-ad34-9fe5030141b6",
+            "a5b95aa9-6800-512d-af01-1aa3f7aaff3c"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "b3336570-7e3f-5a58-b03e-2d55e81124de",
+          "document_id": "b67c3731-cc0f-4ae2-8986-afe0365c0f99",
+          "source_id": "docs\\en\\docs\\how-to\\extending-openapi.md",
+          "source_type": "doc",
+          "score": 0.7882,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "45b8e168-96be-576c-b88f-baafe88e60c5",
+          "document_id": "72acc71a-c88b-4747-8462-2b292a55c464",
+          "source_id": "docs\\en\\docs\\advanced\\path-operation-advanced-configuration.md",
+          "source_type": "doc",
+          "score": 0.7446,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "a5b95aa9-6800-512d-af01-1aa3f7aaff3c",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.7259,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "553ed73b-aff4-541a-b375-f4f5f7741fb4",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.7076,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 3,
+          "chunk_id": "84878ce9-3631-5011-ad34-9fe5030141b6",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6992,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 59.251599999697646,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\openapi\\utils.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-037",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How do response-model documentation and runtime validation relate?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\response-model.md",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "33140f1b-5ccf-5e27-9b9c-b9dc9a19e1c1",
+            "83286208-9655-5114-a1e7-2b1063470c93"
+          ]
+        },
+        {
+          "source_id": "docs\\ko\\docs\\advanced\\additional-responses.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "5fa7ef01-4ade-5937-998b-9503af0d0f7d"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\features.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "0ef1880b-342d-5550-96c5-ab3a6c6bde9e"
+          ]
+        },
+        {
+          "source_id": "docs\\pt\\docs\\tutorial\\response-model.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "dcce4575-4ec1-545b-a62e-268aad573afc"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "33140f1b-5ccf-5e27-9b9c-b9dc9a19e1c1",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.504,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "5fa7ef01-4ade-5937-998b-9503af0d0f7d",
+          "document_id": "e869b2e6-370d-43f1-b276-21749644a96d",
+          "source_id": "docs\\ko\\docs\\advanced\\additional-responses.md",
+          "source_type": "doc",
+          "score": 0.481,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 1,
+          "chunk_id": "83286208-9655-5114-a1e7-2b1063470c93",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4701,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "0ef1880b-342d-5550-96c5-ab3a6c6bde9e",
+          "document_id": "bd2478b0-b909-457e-bc2e-1417b34795e3",
+          "source_id": "docs\\fr\\docs\\features.md",
+          "source_type": "doc",
+          "score": 0.4701,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "dcce4575-4ec1-545b-a62e-268aad573afc",
+          "document_id": "f800bc04-b909-4cb6-868d-4de1b58e560a",
+          "source_id": "docs\\pt\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4697,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.6131471927654584,
+      "retrieval_latency_ms": 62.58750000051805,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-038",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which code and package declaration work together to support multipart form/file parsing?",
+      "expected_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py",
+        "pyproject.toml"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\ko\\docs\\tutorial\\request-forms-and-files.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "d73be387-1ae8-5541-818b-2ba59613ad9b"
+          ]
+        },
+        {
+          "source_id": "docs\\zh\\docs\\tutorial\\request-forms-and-files.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "49f98272-7b84-5407-abad-ac7389aa92fa"
+          ]
+        },
+        {
+          "source_id": "docs\\ja\\docs\\tutorial\\request-forms-and-files.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "fd59f6c5-42da-525f-bcde-1b2b37a9269e"
+          ]
+        },
+        {
+          "source_id": "docs\\ko\\docs\\tutorial\\request-files.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "f39f7e82-1b74-5c33-82fe-682c81d070b6"
+          ]
+        },
+        {
+          "source_id": "docs\\ja\\docs\\tutorial\\request-files.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "250b0b56-85e7-5907-97fd-dda9a1a2117a"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "d73be387-1ae8-5541-818b-2ba59613ad9b",
+          "document_id": "4bc82816-bf00-4a39-bcc4-58190ceacc48",
+          "source_id": "docs\\ko\\docs\\tutorial\\request-forms-and-files.md",
+          "source_type": "doc",
+          "score": 0.5682,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "49f98272-7b84-5407-abad-ac7389aa92fa",
+          "document_id": "7b911c83-c56f-431f-b467-27558156f1fc",
+          "source_id": "docs\\zh\\docs\\tutorial\\request-forms-and-files.md",
+          "source_type": "doc",
+          "score": 0.5457,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "fd59f6c5-42da-525f-bcde-1b2b37a9269e",
+          "document_id": "eef9fec9-93ad-4908-8d72-a28ecd996dd9",
+          "source_id": "docs\\ja\\docs\\tutorial\\request-forms-and-files.md",
+          "source_type": "doc",
+          "score": 0.5454,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "f39f7e82-1b74-5c33-82fe-682c81d070b6",
+          "document_id": "c0f82b89-c91b-4893-b891-f4f9672d7cf5",
+          "source_id": "docs\\ko\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5413,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "250b0b56-85e7-5907-97fd-dda9a1a2117a",
+          "document_id": "7105eea3-27f1-4c38-a73a-c8fd94d2aa3a",
+          "source_id": "docs\\ja\\docs\\tutorial\\request-files.md",
+          "source_type": "doc",
+          "score": 0.5371,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 64.50140000015381,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\dependencies\\utils.py",
+        "pyproject.toml"
+      ]
+    },
+    {
+      "query_id": "RMV1-039",
+      "category": "cross_file",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How do FastAPI’s middleware docs connect its Starlette/ASGI basis with CORS configuration?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\advanced\\middleware.md",
+        "docs\\en\\docs\\tutorial\\cors.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\middleware.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "ead34800-178f-53f0-814e-a898dd2f2c1b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_rank": 2,
+          "relevant": true,
+          "chunk_ids": [
+            "081b9881-59a5-557b-be19-c5bd3014c3c8"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "5b748852-d6da-551c-8f6f-facfdb89c0b9"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\reference\\middleware.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "1bd1e39f-2ebd-5c0d-befe-1df4ef3cdaa0"
+          ]
+        },
+        {
+          "source_id": "docs\\es\\docs\\advanced\\response-headers.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "37be256e-f9a3-5b75-887b-7cd8274d389d"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "ead34800-178f-53f0-814e-a898dd2f2c1b",
+          "document_id": "55478d77-30b4-406b-bd80-053747383015",
+          "source_id": "docs\\en\\docs\\advanced\\middleware.md",
+          "source_type": "doc",
+          "score": 0.7604,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "081b9881-59a5-557b-be19-c5bd3014c3c8",
+          "document_id": "6ef38ecc-b94a-4413-94ed-5b5da93790cb",
+          "source_id": "docs\\en\\docs\\tutorial\\cors.md",
+          "source_type": "doc",
+          "score": 0.7442,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "5b748852-d6da-551c-8f6f-facfdb89c0b9",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6948,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "1bd1e39f-2ebd-5c0d-befe-1df4ef3cdaa0",
+          "document_id": "8e16bb40-51b6-47ae-b29b-ac93a84de005",
+          "source_id": "docs\\en\\docs\\reference\\middleware.md",
+          "source_type": "doc",
+          "score": 0.6474,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "37be256e-f9a3-5b75-887b-7cd8274d389d",
+          "document_id": "a2cab608-69fb-45b0-86c9-edd9c38a08c1",
+          "source_id": "docs\\es\\docs\\advanced\\response-headers.md",
+          "source_type": "doc",
+          "score": 0.6152,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.4,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 62.05050000062329,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-040",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What framework relationship lets FastAPI applications use Starlette ASGI middleware?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "docs\\en\\docs\\advanced\\middleware.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\benchmarks.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "d8d70e6f-c15f-511c-9b2e-2cd3ac3db1b8"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\middleware.md",
+          "source_rank": 2,
+          "relevant": true,
+          "chunk_ids": [
+            "ead34800-178f-53f0-814e-a898dd2f2c1b"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\response-cookies.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "e1157d59-670e-598b-8ce8-f7c9b5480b87"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "45014207-574b-57b3-b87d-bce801cfa550"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "0de403de-c1ce-562f-b790-bc90edf8f3bf"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "d8d70e6f-c15f-511c-9b2e-2cd3ac3db1b8",
+          "document_id": "500ed94d-874d-4240-933e-baa07310573f",
+          "source_id": "docs\\en\\docs\\benchmarks.md",
+          "source_type": "doc",
+          "score": 0.6893,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "ead34800-178f-53f0-814e-a898dd2f2c1b",
+          "document_id": "55478d77-30b4-406b-bd80-053747383015",
+          "source_id": "docs\\en\\docs\\advanced\\middleware.md",
+          "source_type": "doc",
+          "score": 0.6876,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "e1157d59-670e-598b-8ce8-f7c9b5480b87",
+          "document_id": "96a14dae-7385-455a-89b9-bbb224129999",
+          "source_id": "docs\\en\\docs\\advanced\\response-cookies.md",
+          "source_type": "doc",
+          "score": 0.6243,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "45014207-574b-57b3-b87d-bce801cfa550",
+          "document_id": "9fade012-1d15-45db-998f-1cfa445d6fa8",
+          "source_id": "docs\\en\\docs\\advanced\\using-request-directly.md",
+          "source_type": "doc",
+          "score": 0.6223,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "0de403de-c1ce-562f-b790-bc90edf8f3bf",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6205,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.38685280723454163,
+      "retrieval_latency_ms": 62.42960000054154,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-041",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How are request and function exit stacks used to manage dependency cleanup?",
+      "expected_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\dependencies\\utils.py",
+        "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "9306c327-7c2d-5f35-97f2-73e33df92d68",
+            "cf5bd00f-3e6c-5e8e-85b8-298d4176142f"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "73dd53f3-c0a0-516c-a397-d60e7af18ceb"
+          ]
+        },
+        {
+          "source_id": "docs\\zh-hant\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "be82f41c-0d6f-558d-83d6-88e8d13f38f7"
+          ]
+        },
+        {
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "61a9a112-3975-5209-9b6c-b27c74b67552"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "cf5bd00f-3e6c-5e8e-85b8-298d4176142f",
+          "document_id": "a4b76914-f242-4f12-b300-e2c5dc5c01c5",
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.5485,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "9306c327-7c2d-5f35-97f2-73e33df92d68",
+          "document_id": "a4b76914-f242-4f12-b300-e2c5dc5c01c5",
+          "source_id": "docs\\en\\docs\\advanced\\advanced-dependencies.md",
+          "source_type": "doc",
+          "score": 0.4935,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "73dd53f3-c0a0-516c-a397-d60e7af18ceb",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4795,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "be82f41c-0d6f-558d-83d6-88e8d13f38f7",
+          "document_id": "ecda5341-d3da-46a9-8a51-771c8a1170a8",
+          "source_id": "docs\\zh-hant\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.4763,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "61a9a112-3975-5209-9b6c-b27c74b67552",
+          "document_id": "e41e8edf-898f-4027-8f94-56d073e2b086",
+          "source_id": "docs\\fr\\docs\\tutorial\\dependencies\\dependencies-with-yield.md",
+          "source_type": "doc",
+          "score": 0.4743,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.0,
+      "precision_at_5": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "retrieval_latency_ms": 60.483500001282664,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py",
+        "fastapi\\dependencies\\utils.py",
+        "docs\\en\\docs\\tutorial\\dependencies\\dependencies-with-yield.md"
+      ]
+    },
+    {
+      "query_id": "RMV1-042",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "When should an endpoint return a Response directly instead of using normal response-model conversion?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\response-model.md",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "83286208-9655-5114-a1e7-2b1063470c93",
+            "ac41b607-88c1-54b9-8895-3027da4548d2"
+          ]
+        },
+        {
+          "source_id": "tests\\test_response_dependency.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "87a5c167-3e54-589a-9f8f-139909e04165"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\advanced\\response-directly.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "dfa570ca-b413-5618-a5ab-878eb0fb2ec1"
+          ]
+        },
+        {
+          "source_id": "tests\\test_nested_annotated_in_sequence.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "6c32b916-d008-552f-ad19-e8bbedb1f506"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "83286208-9655-5114-a1e7-2b1063470c93",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4438,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "87a5c167-3e54-589a-9f8f-139909e04165",
+          "document_id": "23421a70-2237-4770-be4e-16d22035e78d",
+          "source_id": "tests\\test_response_dependency.py",
+          "source_type": "code",
+          "score": 0.4342,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "dfa570ca-b413-5618-a5ab-878eb0fb2ec1",
+          "document_id": "22e4f4bd-fa54-4dfd-a3c1-3d07c2730d95",
+          "source_id": "docs\\en\\docs\\advanced\\response-directly.md",
+          "source_type": "doc",
+          "score": 0.4296,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 1,
+          "chunk_id": "ac41b607-88c1-54b9-8895-3027da4548d2",
+          "document_id": "52175a77-01b0-46bc-809e-d95f1bfb0859",
+          "source_id": "docs\\en\\docs\\tutorial\\response-model.md",
+          "source_type": "doc",
+          "score": 0.4282,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "6c32b916-d008-552f-ad19-e8bbedb1f506",
+          "document_id": "8afc645f-aa5d-4e94-8e0f-0a4f6fd7688d",
+          "source_id": "tests\\test_nested_annotated_in_sequence.py",
+          "source_type": "code",
+          "score": 0.4122,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.6131471927654584,
+      "retrieval_latency_ms": 55.39150000004156,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-043",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does the settings guide load and validate environment variables using Pydantic Settings?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\advanced\\settings.md"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\advanced\\settings.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "3f79a7da-2d33-5f19-9ef8-1abea60e8092"
+          ]
+        },
+        {
+          "source_id": "docs_src\\settings\\app03_py310\\config.py",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "21802efc-191c-5c65-afa7-a423dbc6e569"
+          ]
+        },
+        {
+          "source_id": "docs_src\\settings\\app03_an_py310\\config.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "7e38d790-3c2d-517a-b1e7-3d1278ebf767"
+          ]
+        },
+        {
+          "source_id": "docs_src\\settings\\app02_an_py310\\config.py",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "e8c3f43c-db19-5683-b6e1-c471014f537a"
+          ]
+        },
+        {
+          "source_id": "docs_src\\settings\\app02_py310\\config.py",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "e73747b3-eff9-58a4-a241-02291d9c75f9"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "3f79a7da-2d33-5f19-9ef8-1abea60e8092",
+          "document_id": "be600d71-e869-49a3-9fe3-baa129ebb7f7",
+          "source_id": "docs\\en\\docs\\advanced\\settings.md",
+          "source_type": "doc",
+          "score": 0.7833,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "21802efc-191c-5c65-afa7-a423dbc6e569",
+          "document_id": "746698e1-d742-453b-b5c2-1b3bf941dbd0",
+          "source_id": "docs_src\\settings\\app03_py310\\config.py",
+          "source_type": "code",
+          "score": 0.757,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "7e38d790-3c2d-517a-b1e7-3d1278ebf767",
+          "document_id": "15439f00-1491-4604-bfc4-7fdf3d6086c8",
+          "source_id": "docs_src\\settings\\app03_an_py310\\config.py",
+          "source_type": "code",
+          "score": 0.757,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "e8c3f43c-db19-5683-b6e1-c471014f537a",
+          "document_id": "e0d4111b-4d63-448a-9ad1-e6f99360f6e8",
+          "source_id": "docs_src\\settings\\app02_an_py310\\config.py",
+          "source_type": "code",
+          "score": 0.7441,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "e73747b3-eff9-58a4-a241-02291d9c75f9",
+          "document_id": "c2a95a2a-20e0-4d66-94d0-1be7357704bd",
+          "source_id": "docs_src\\settings\\app02_py310\\config.py",
+          "source_type": "code",
+          "score": 0.7441,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 56.97399999917252,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-044",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does the documentation organize a larger application into router modules and include them?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\bigger-applications.md",
+        "fastapi\\routing.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "38e89585-695c-5fe1-90fd-59ad61cacec3",
+            "4b91bda1-1f81-56de-8cce-6e186e507dee",
+            "99f95115-03bc-5d83-93ab-fc217903e04a",
+            "cafedc7d-22cf-5860-b3c6-a75954eb6974",
+            "cdfb295e-c8d0-5cab-9adc-e47ac6f76c48"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "99f95115-03bc-5d83-93ab-fc217903e04a",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.6631,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "38e89585-695c-5fe1-90fd-59ad61cacec3",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.6177,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 1,
+          "chunk_id": "cafedc7d-22cf-5860-b3c6-a75954eb6974",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.61,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 1,
+          "chunk_id": "cdfb295e-c8d0-5cab-9adc-e47ac6f76c48",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.6051,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 1,
+          "chunk_id": "4b91bda1-1f81-56de-8cce-6e186e507dee",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.5912,
+          "relevant_source": true
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.6131471927654584,
+      "retrieval_latency_ms": 56.382300001132535,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\routing.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-045",
+      "category": "architecture_docs",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "How does the middleware documentation describe request/response processing order around path operations?",
+      "expected_relevant_source_ids": [
+        "docs\\en\\docs\\tutorial\\middleware.md",
+        "fastapi\\applications.py"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\middleware.md",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "15a45013-6142-5ab8-ac0e-7d87addf9f0f",
+            "7588d58c-af56-5d34-ba0b-21fbf0f947cd"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93"
+          ]
+        },
+        {
+          "source_id": "docs\\hi\\docs\\tutorial\\middleware.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "9c9f0c5e-dd88-57d1-a729-066e3bf135ae"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "8acf6fb0-716e-530d-8676-4ac311d9f00c"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "15a45013-6142-5ab8-ac0e-7d87addf9f0f",
+          "document_id": "b0d6ac36-d3f5-4070-89f2-d5c95c986425",
+          "source_id": "docs\\en\\docs\\tutorial\\middleware.md",
+          "source_type": "doc",
+          "score": 0.6591,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "7588d58c-af56-5d34-ba0b-21fbf0f947cd",
+          "document_id": "b0d6ac36-d3f5-4070-89f2-d5c95c986425",
+          "source_id": "docs\\en\\docs\\tutorial\\middleware.md",
+          "source_type": "doc",
+          "score": 0.6165,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "5f3ec8df-ed7c-5aa1-aadc-50ebffc83a93",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5785,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "9c9f0c5e-dd88-57d1-a729-066e3bf135ae",
+          "document_id": "0e32f820-e4ea-4cf5-b880-1bbfdb08447e",
+          "source_id": "docs\\hi\\docs\\tutorial\\middleware.md",
+          "source_type": "doc",
+          "score": 0.555,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "8acf6fb0-716e-530d-8676-4ac311d9f00c",
+          "document_id": "797ca112-85ab-4d40-87ef-18a4dcca1d3b",
+          "source_id": "docs\\en\\docs\\tutorial\\bigger-applications.md",
+          "source_type": "doc",
+          "score": 0.5492,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 0.5,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 0.6131471927654584,
+      "retrieval_latency_ms": 57.906800000637304,
+      "status": "success",
+      "evidence_complete": false,
+      "missing_relevant_source_ids": [
+        "fastapi\\applications.py"
+      ]
+    },
+    {
+      "query_id": "RMV1-046",
+      "category": "history",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What change fixed propagation of dependency-provided background tasks and headers in app.frontend?",
+      "expected_relevant_source_ids": [
+        "d62354434b2e508fe89024213b220ca8e67dea5e"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "d62354434b2e508fe89024213b220ca8e67dea5e",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "5d46047a-40ff-5c97-8cec-0f69a2b23ec5"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\frontend.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "75fce977-00e8-5738-8c9d-1b4a9186d149"
+          ]
+        },
+        {
+          "source_id": "tests\\test_frontend.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "6005dfae-d3f0-57da-86af-f321c528ef38"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\background-tasks.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "6eabad26-c754-56c4-8d6b-5c648d524c40"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\frontend.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "d7f2c35f-277b-533c-955b-d239208ff846"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "5d46047a-40ff-5c97-8cec-0f69a2b23ec5",
+          "document_id": "1efb0d1a-600a-4d8b-a3d4-7f3e8104ddf9",
+          "source_id": "d62354434b2e508fe89024213b220ca8e67dea5e",
+          "source_type": "commit",
+          "score": 0.6359,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "75fce977-00e8-5738-8c9d-1b4a9186d149",
+          "document_id": "9641a477-0543-465f-8d2e-5965a6773a78",
+          "source_id": "docs\\en\\docs\\tutorial\\frontend.md",
+          "source_type": "doc",
+          "score": 0.6016,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "6005dfae-d3f0-57da-86af-f321c528ef38",
+          "document_id": "bc00c811-dc24-4111-8c44-3190d9f88bd9",
+          "source_id": "tests\\test_frontend.py",
+          "source_type": "code",
+          "score": 0.4749,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "6eabad26-c754-56c4-8d6b-5c648d524c40",
+          "document_id": "48b859ef-e93c-47c3-8058-9f28e6c77b42",
+          "source_id": "docs\\de\\docs\\tutorial\\background-tasks.md",
+          "source_type": "doc",
+          "score": 0.4512,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "d7f2c35f-277b-533c-955b-d239208ff846",
+          "document_id": "88a0b53c-26d9-42ca-9fb2-8b4e492f759d",
+          "source_id": "docs\\de\\docs\\tutorial\\frontend.md",
+          "source_type": "doc",
+          "score": 0.4495,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 60.90290000065579,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-047",
+      "category": "history",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What router inclusion bug caused stream item types to be lost, and which change addressed it?",
+      "expected_relevant_source_ids": [
+        "ad03e117c0010a563067740c97cb7ab011cb5174"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "ad03e117c0010a563067740c97cb7ab011cb5174",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "286b625f-21b4-53c1-a1ad-cda7c761ded0"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "4f739782-51ca-57da-95f2-66739bbeec47",
+            "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+            "f3d4487f-b856-54a1-8986-f2a436b90241"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\stream-json-lines.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "e1fd137d-2a98-5fb8-adf8-befa582425e2"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "286b625f-21b4-53c1-a1ad-cda7c761ded0",
+          "document_id": "7fa5fa47-50c0-4091-93bf-94068eba9677",
+          "source_id": "ad03e117c0010a563067740c97cb7ab011cb5174",
+          "source_type": "commit",
+          "score": 0.6764,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "5c2b3c2a-32f5-5e0a-8476-4a24e1ce1561",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4211,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "e1fd137d-2a98-5fb8-adf8-befa582425e2",
+          "document_id": "d9d118f8-b1d3-4d09-9dd9-faf29e7460f6",
+          "source_id": "docs\\de\\docs\\tutorial\\stream-json-lines.md",
+          "source_type": "doc",
+          "score": 0.4141,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "4f739782-51ca-57da-95f2-66739bbeec47",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4108,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 2,
+          "chunk_id": "f3d4487f-b856-54a1-8986-f2a436b90241",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4015,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 63.93159999970521,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-048",
+      "category": "history",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which change avoided flattening dependency graphs during OpenAPI generation?",
+      "expected_relevant_source_ids": [
+        "7bcb78d10d818b05791a34b41d6e84f0e8871013"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 1,
+          "relevant": false,
+          "chunk_ids": [
+            "ced04b55-1a55-5416-88c1-4ad2439368d9",
+            "ec9ad03d-825c-5cc4-bc93-3e4268106ac8"
+          ]
+        },
+        {
+          "source_id": "d012979f9a1d35820a005ee5e22524126d4698c0",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "b0c96ac2-4ff4-5884-bfec-f986ce631fdb"
+          ]
+        },
+        {
+          "source_id": "tests\\benchmarks\\utils.py",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "3163ef13-f43b-5cb6-a4b6-cffe9033c717"
+          ]
+        },
+        {
+          "source_id": "7bcb78d10d818b05791a34b41d6e84f0e8871013",
+          "source_rank": 4,
+          "relevant": true,
+          "chunk_ids": [
+            "30afbf7c-897c-571a-ba65-5641f9bf6191"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "ced04b55-1a55-5416-88c1-4ad2439368d9",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6126,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 1,
+          "chunk_id": "ec9ad03d-825c-5cc4-bc93-3e4268106ac8",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.59,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "b0c96ac2-4ff4-5884-bfec-f986ce631fdb",
+          "document_id": "833099d0-995d-4ab5-b66b-499e16c1def5",
+          "source_id": "d012979f9a1d35820a005ee5e22524126d4698c0",
+          "source_type": "commit",
+          "score": 0.5891,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 3,
+          "chunk_id": "3163ef13-f43b-5cb6-a4b6-cffe9033c717",
+          "document_id": "dc660aa7-c929-4bcd-b2df-2453c1ffc089",
+          "source_id": "tests\\benchmarks\\utils.py",
+          "source_type": "code",
+          "score": 0.5769,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 4,
+          "chunk_id": "30afbf7c-897c-571a-ba65-5641f9bf6191",
+          "document_id": "49ce0ecb-f7e9-42a8-a56f-1d99edf2431a",
+          "source_id": "7bcb78d10d818b05791a34b41d6e84f0e8871013",
+          "source_type": "commit",
+          "score": 0.576,
+          "relevant_source": true
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 0.25,
+      "ndcg_at_5": 0.43067655807339306,
+      "retrieval_latency_ms": 55.29550000028394,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-049",
+      "category": "history",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "What change fixed response_model options being ignored on non-generator endpoints returning an Iterable?",
+      "expected_relevant_source_ids": [
+        "d6537f774b0e80e376e2cf4e0fa998a38c6d0c09"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "d6537f774b0e80e376e2cf4e0fa998a38c6d0c09",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "47b4e56e-4c9b-5bc6-8110-90c13f03f270"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "12d484e3-3c0b-5b84-ba15-747fb099a91c",
+            "b46515f6-66f5-5592-b9ab-b43bd678092e",
+            "d98bbd47-c073-5031-926b-c365d2a8c950",
+            "e5aa6ec4-79f4-59c0-92c5-9d367daba344"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "47b4e56e-4c9b-5bc6-8110-90c13f03f270",
+          "document_id": "719359f0-9cdf-4d14-958a-c0334a5afe27",
+          "source_id": "d6537f774b0e80e376e2cf4e0fa998a38c6d0c09",
+          "source_type": "commit",
+          "score": 0.6907,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "d98bbd47-c073-5031-926b-c365d2a8c950",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.6709,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 2,
+          "chunk_id": "e5aa6ec4-79f4-59c0-92c5-9d367daba344",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5341,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 2,
+          "chunk_id": "12d484e3-3c0b-5b84-ba15-747fb099a91c",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5205,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 2,
+          "chunk_id": "b46515f6-66f5-5592-b9ab-b43bd678092e",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.5115,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 60.55170000036014,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    },
+    {
+      "query_id": "RMV1-050",
+      "category": "history",
+      "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+      "query": "Which change added dependency support to app.frontend for automatic frontend authentication?",
+      "expected_relevant_source_ids": [
+        "319be508ce7db9ee5f52c3b9baa68c6cc1037c10"
+      ],
+      "retrieved_sources": [
+        {
+          "source_id": "319be508ce7db9ee5f52c3b9baa68c6cc1037c10",
+          "source_rank": 1,
+          "relevant": true,
+          "chunk_ids": [
+            "be4cbf27-145d-5226-8d21-43a454aa1cde"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\tutorial\\security\\index.md",
+          "source_rank": 2,
+          "relevant": false,
+          "chunk_ids": [
+            "a2db36cc-e59c-5037-97b4-15f1a25ed2e5"
+          ]
+        },
+        {
+          "source_id": "docs\\de\\docs\\tutorial\\frontend.md",
+          "source_rank": 3,
+          "relevant": false,
+          "chunk_ids": [
+            "d7f2c35f-277b-533c-955b-d239208ff846"
+          ]
+        },
+        {
+          "source_id": "docs\\pt\\docs\\tutorial\\frontend.md",
+          "source_rank": 4,
+          "relevant": false,
+          "chunk_ids": [
+            "35ad3d08-1df2-5773-83a7-a79a0616de90"
+          ]
+        },
+        {
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_rank": 5,
+          "relevant": false,
+          "chunk_ids": [
+            "81c3a2a2-6a21-5636-887d-28223a6c376d"
+          ]
+        }
+      ],
+      "retrieved_chunks": [
+        {
+          "chunk_rank": 1,
+          "source_rank": 1,
+          "chunk_id": "be4cbf27-145d-5226-8d21-43a454aa1cde",
+          "document_id": "64f9ed28-e4ca-46a9-88e4-b844e3b98c4a",
+          "source_id": "319be508ce7db9ee5f52c3b9baa68c6cc1037c10",
+          "source_type": "commit",
+          "score": 0.6257,
+          "relevant_source": true
+        },
+        {
+          "chunk_rank": 2,
+          "source_rank": 2,
+          "chunk_id": "a2db36cc-e59c-5037-97b4-15f1a25ed2e5",
+          "document_id": "e67fd4bf-d14f-4509-bf81-16637e875b06",
+          "source_id": "docs\\en\\docs\\tutorial\\security\\index.md",
+          "source_type": "doc",
+          "score": 0.457,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 3,
+          "source_rank": 3,
+          "chunk_id": "d7f2c35f-277b-533c-955b-d239208ff846",
+          "document_id": "88a0b53c-26d9-42ca-9fb2-8b4e492f759d",
+          "source_id": "docs\\de\\docs\\tutorial\\frontend.md",
+          "source_type": "doc",
+          "score": 0.4553,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 4,
+          "source_rank": 4,
+          "chunk_id": "35ad3d08-1df2-5773-83a7-a79a0616de90",
+          "document_id": "77002cb7-0d9b-421e-ad5f-36baa1c4e2e8",
+          "source_id": "docs\\pt\\docs\\tutorial\\frontend.md",
+          "source_type": "doc",
+          "score": 0.4538,
+          "relevant_source": false
+        },
+        {
+          "chunk_rank": 5,
+          "source_rank": 5,
+          "chunk_id": "81c3a2a2-6a21-5636-887d-28223a6c376d",
+          "document_id": "79772c8a-210f-4cc1-9f59-c3b2d4d004fb",
+          "source_id": "docs\\en\\docs\\release-notes.md",
+          "source_type": "doc",
+          "score": 0.4502,
+          "relevant_source": false
+        }
+      ],
+      "recall_at_5": 1.0,
+      "precision_at_5": 0.2,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "retrieval_latency_ms": 61.14479999996547,
+      "status": "success",
+      "evidence_complete": true,
+      "missing_relevant_source_ids": []
+    }
+  ]
+}

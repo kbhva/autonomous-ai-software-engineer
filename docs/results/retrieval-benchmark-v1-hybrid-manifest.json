@@ -1,0 +1,91 @@
+{
+  "manifest_version": 1,
+  "started_at_utc": "2026-10-08T14:21:55.036393+00:00",
+  "completed_at_utc": "2026-10-08T14:23:50.050066+00:00",
+  "benchmark": {
+    "version": "v1",
+    "path": "eval/eval_set_v1_clean.jsonl",
+    "sha256": "095ab6ad618aa26bcfd49022f7044fa095dc46c1b34085e899d83298acee171d",
+    "query_count": 50,
+    "evidence_annotation_count": 70,
+    "unique_source_level_reference_count": 68
+  },
+  "repository": {
+    "name": "FastAPI",
+    "commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "identity_key": "repomind-fastapi-clean-v1",
+    "derived_uuid": "b9e734ef-1538-579f-afce-520e5007a1cc"
+  },
+  "corpus": {
+    "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+    "repository_identity_key": "repomind-fastapi-clean-v1",
+    "commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "candidate_files": 2877,
+    "empty_or_whitespace_files_ignored": 183,
+    "unreadable_candidates": 0,
+    "file_documents": 2694,
+    "documents": 2944,
+    "chunks": 15374,
+    "commits": 250,
+    "ingest_failures": 0,
+    "reported_skips": 0,
+    "chunks_created_or_changed": 15374,
+    "chunks_reused": 0,
+    "sources_removed": 0,
+    "chunks_removed": 0
+  },
+  "experiment": {
+    "stage": "experiment-1-hybrid",
+    "retrieval_mode": "hybrid",
+    "hybrid_alpha": 0.5,
+    "k": 5,
+    "warmup_query": "Synthetic warm-up probe for repository retrieval behavior.",
+    "warmup_latency_ms_excluded": 3268.86210000157,
+    "warmup_result_count": 5,
+    "tuning_statement": "No benchmark-driven hyperparameter tuning was performed."
+  },
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "device": "cuda:0"
+  },
+  "runtime": {
+    "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "repomind_version": "0.1.0",
+    "database_version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+    "pgvector_version": "0.8.6",
+    "container_image": "pgvector/pgvector:pg17",
+    "container_image_digest": "sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f",
+    "database_storage": "temporary tmpfs",
+    "database_host_binding": "127.0.0.1:55436"
+  },
+  "evaluator_fingerprints": {
+    "evaluate_recall_py_sha256": "e79cc9dbb4cecc45a063cbed69b649a2398f9ab756d3ca0cf018907143687a53",
+    "evaluation_py_sha256": "1bc5bd7955a8ea00b4f9e1d0e2ae272a9b7eb3228c9c1ad89053b5a1deeaa7e5",
+    "retrieval_py_sha256": "10d95384d2342090544611c59a7385d69ffab543aea6eba0b21953f5454ad495",
+    "api_py_sha256": "02f26a66e248485fd8e37070f1f822ea60290a706facde02d94cb8e5fea91b1e"
+  },
+  "experiment_0_frozen_artifact_hashes": {
+    "results_json_sha256": "8f7ee4bfb268edbedfe0822e1fae6f5b91f21af46c47213346550be3ca6304c4",
+    "manifest_json_sha256": "e50fb07b7ff5ba60f60251e408d5a310938710636d4b97f3e819d32dd439b9be",
+    "report_md_sha256": "a6de0ee0c8b2d1bff8f5d436038263a349567f378f4d2812e4a8f6ac10d9274f"
+  },
+  "warmup": {
+    "procedure": "synthetic hybrid_search call after model load",
+    "query_is_in_benchmark": false,
+    "requests": 1,
+    "excluded_from_reported_latency": true
+  },
+  "run_policy": "one ingest, one synthetic warm-up, each frozen benchmark query attempted once in file order; no retries or re-ingestion",
+  "benchmark_sha256_after_run": "095ab6ad618aa26bcfd49022f7044fa095dc46c1b34085e899d83298acee171d",
+  "successful_query_count": 50,
+  "service_error_count": 0,
+  "result_artifact_sha256": "4d0af6d5984bb2bb499c46c8572b51ff79afa7737ba9dba60966195a939470dd",
+  "public_sanitization": {
+    "note": "250 retrieved source excerpt content fields were omitted from the public JSON to avoid redistributing corpus text containing email-like personal data; query, rank, score, metric, and latency fields are unchanged.",
+    "original_source_result_sha256": "3c003c1bb9ddeba9a6fa5d2633e079374eaad6d31998c58b3e474e78b4d9b378",
+    "sanitized_public_result_sha256": "4d0af6d5984bb2bb499c46c8572b51ff79afa7737ba9dba60966195a939470dd",
+    "removed_excerpt_fields": 250
+  }
+}

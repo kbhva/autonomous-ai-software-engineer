@@ -1,0 +1,77 @@
+{
+  "manifest_version": 1,
+  "generated_at_utc": "2026-10-08T13:47:30Z",
+  "benchmark_sha256": "095ab6ad618aa26bcfd49022f7044fa095dc46c1b34085e899d83298acee171d",
+  "query_count": 50,
+  "evidence_annotation_count": 70,
+  "unique_source_level_reference_count": 68,
+  "repository": {
+    "name": "FastAPI",
+    "commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "identity": "repomind-fastapi-clean-v1",
+    "effective_uuid": "b9e734ef-1538-579f-afce-520e5007a1cc"
+  },
+  "corpus": {
+    "repository_id": "b9e734ef-1538-579f-afce-520e5007a1cc",
+    "commit": "c3f316b7e814667e8ee81e03a7330d00ee61e45c",
+    "files_processed_by_ingester": 2877,
+    "candidate_text_files": 2877,
+    "empty_or_whitespace_candidate_files_ignored": 183,
+    "file_documents_created": 2694,
+    "commit_documents_created": 250,
+    "documents_created": 2944,
+    "chunks_created": 15374,
+    "chunks_reused": 0,
+    "chunks_in_corpus": 15374,
+    "commits_ingested": 250,
+    "failures": 0,
+    "reported_skipped_files": 0,
+    "labeled_evidence_annotations": 70,
+    "unique_relevant_source_references": 68,
+    "all_labeled_sources_have_chunks": true
+  },
+  "repomind_version": "0.1.0",
+  "python_version": "3.12.0",
+  "embedding_and_retrieval_configuration": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_dimensions": 384,
+    "device": "cuda:0",
+    "chunking": "--ast: Python AST-aware; fixed-size chunking for other supported text; one chunk per commit",
+    "max_commits": 250,
+    "max_files": null,
+    "evaluator_k": 5,
+    "global_repo_mind_top_k_setting_unused_by_evaluator": 20
+  },
+  "database": {
+    "postgresql_version": "PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+    "pgvector_version": "0.8.6",
+    "image": "pgvector/pgvector",
+    "image_digest": "sha256:cf134a767f474095eeba57e0117be8e568e011a63f33fbf252f14c9b760f8e6f",
+    "storage": "temporary tmpfs",
+    "host_binding": "127.0.0.1"
+  },
+  "evaluator_fingerprints": {
+    "evaluate_recall_py_sha256": "f7490a5b6050c1a0099fc4e911a5cc8123801e762342c0d5c8650999efdb7e36",
+    "evaluation_py_sha256": "1bc5bd7955a8ea00b4f9e1d0e2ae272a9b7eb3228c9c1ad89053b5a1deeaa7e5",
+    "retrieval_py_sha256": "ef5711475ca07d8ed145ad8fbe6408d62f83cf799f27091a25a68e5e5342a8a8"
+  },
+  "warmup": {
+    "procedure": "scripts.evaluate_recall.warm_up_retrieval",
+    "requests": 1,
+    "query_id": "RMV1-001",
+    "included_in_metrics": false,
+    "model_initialized_before_timing": true
+  },
+  "metric_definitions": {
+    "relevance_unit": "SOURCE-LEVEL RELEVANCE",
+    "ground_truth": "68 unique query/source labels across 50 queries; the 70 label_evidence entries are evidence annotations and duplicate source annotations collapse per the evaluator's set semantics.",
+    "projection": "Top-k chunks are projected in retrieval order to unique first-seen source ranks; later chunks from the same source add no additional relevance gain.",
+    "recall_at_5": "Unique relevant sources in projected top-k divided by unique relevant sources for that query.",
+    "precision_at_5": "Relevant unique projected source ranks divided by K; denominator remains K when duplicate chunks leave fewer unique sources.",
+    "mrr": "Reciprocal rank of the first relevant source in projected order.",
+    "ndcg_at_5": "Binary gain per unique projected source, normalized against up to min(K, number of relevant sources).",
+    "retrieval_latency_ms": "vector_search's timer includes query embedding, database retrieval, and result conversion; excludes model initialization, warm-up, session/setup, database/container startup, and ingestion.",
+    "p95": "Nearest-rank p95 (sorted index ceil(0.95*n)-1), matching the existing evaluator convention."
+  },
+  "run_policy": "one ingest, one warm-up, each benchmark query executed once in frozen file order; no retries or re-ingestion"
+}

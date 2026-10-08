@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.pytest-tmp/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+.tox/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets and configuration
+.env
+.env.*
+!.env.example
+/.secrets/
+credentials.local.*
+*.pem
+*.key
+
+# IDE and editor state
+.idea/
+.vscode/
+*.suo
+*.user
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local model and embedding caches
+.cache/
+.model_cache/
+.torch/
+.huggingface/
+*.safetensors
+*.gguf
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Private benchmark oracle/reference assets (retain locally, never publish)
+/benchmark/evaluators/
+/benchmark/reference_fixes/
+/benchmark/validation-results.json
+/benchmark/workspaces/
+/benchmark/local-results/
+/benchmark/tmp/

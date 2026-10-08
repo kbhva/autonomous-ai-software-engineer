@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_frozen",
+  "repositories": {
+    "configflow": {
+      "source": "benchmark/repositories/configflow",
+      "revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "package": "configflow",
+      "task_count": 6
+    },
+    "miniservice": {
+      "source": "benchmark/repositories/miniservice",
+      "revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "package": "miniservice",
+      "task_count": 6
+    },
+    "streamstats": {
+      "source": "benchmark/repositories/streamstats",
+      "revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "package": "streamstats",
+      "task_count": 6
+    },
+    "accessflow": {
+      "source": "benchmark/repositories/accessflow",
+      "revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "package": "accessflow",
+      "task_count": 6
+    }
+  },
+  "run_configuration": {
+    "python": "3.12+",
+    "platform": "record at validation/run time",
+    "variants": [
+      "single",
+      "multi",
+      "multi-mcp",
+      "multi-mcp-repomind"
+    ]
+  },
+  "tasks": [
+    {
+      "task_id": "CONFIGFLOW-01",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "api_behavior_change",
+      "task_description": "Parse native booleans unchanged and accept only the textual spellings 1, true, yes, on and 0, false, no, off. Text matching is case-insensitive and ignores surrounding whitespace. Raise ValueError for other values.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "CONFIGFLOW-01",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_native_booleans_are_preserved",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "CONFIGFLOW-02",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "configuration_dependency_change",
+      "task_description": "Environment overrides are intended to take precedence over saved configuration, while unspecified settings continue to inherit from defaults. Make settings resolution follow that precedence rule consistently.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "CONFIGFLOW-02",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_02",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "CONFIGFLOW-03",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "regression_fix",
+      "task_description": "A zero or negative request timeout can currently enter runtime settings and cause confusing downstream behavior. Reject non-positive timeout values with the package's configuration error.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "CONFIGFLOW-03",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_03",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "CONFIGFLOW-04",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "security_behavior",
+      "task_description": "Diagnostic settings may contain credential fields with qualified names such as `database_password` or `service_api_key`. Ensure the shared redaction helper protects those values while preserving ordinary settings.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "CONFIGFLOW-04",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_04",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "CONFIGFLOW-05",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "cross_file_change",
+      "task_description": "Environment keys with multiple double-underscore-separated components must produce the same nested setting hierarchy as explicit dotted-path updates. Correct the shared path behavior so updating one nested setting preserves its sibling settings.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "CONFIGFLOW-05",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_environment_paths_and_explicit_updates_share_nested_path_semantics",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "CONFIGFLOW-06",
+      "repository_id": "configflow",
+      "repository_source": "benchmark/repositories/configflow",
+      "repository_revision": "b6d25c9ed6c327953a43e656f55468339a842fdf",
+      "task_category": "cross_file_dependency_change",
+      "task_description": "Named settings profiles can extend a parent profile, which can itself extend another profile. Resolve the inheritance chain before applying child values, deep-merge nested mappings, and retain unrelated parent settings. A missing parent continues to raise KeyError.",
+      "difficulty": "medium",
+      "retrieval_relevance": "high",
+      "evaluator_id": "CONFIGFLOW-06",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_multilevel_profiles_deep_merge_nested_overrides_and_preserve_siblings",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-01",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "single_file_bug_fix",
+      "task_description": "Ticket titles should be displayed and searched consistently even when a request contains repeated internal whitespace. Normalize runs of whitespace to a single space when accepting a title.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "MINISERVICE-01",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_01",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-02",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "api_behavior_change",
+      "task_description": "Ticket lifecycle changes must follow the supported workflow. Reject a transition that is not allowed from the current status and leave the ticket unchanged.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "MINISERVICE-02",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_02",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-03",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "cross_file_change",
+      "task_description": "Event sequence values must be contiguous per ticket, beginning at 1 for its creation event and increasing by 1 for each update, even when events for other tickets are interleaved.",
+      "difficulty": "medium",
+      "retrieval_relevance": "high",
+      "evaluator_id": "MINISERVICE-03",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_sequences_are_contiguous_per_ticket_despite_interleaved_global_events",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-04",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "regression_fix",
+      "task_description": "Malformed or out-of-range pagination values must be returned as client errors by the REST-style façade, while valid integer or numeric-text page and size values continue to work.",
+      "difficulty": "easy",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "MINISERVICE-04",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_invalid_pagination_is_a_client_error_and_valid_pages_still_work",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-05",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "api_behavior_change",
+      "task_description": "Ticket tags are returned to API callers as lookup labels. Normalize accepted tags by trimming whitespace and lowercasing them, and reject blank/non-text entries as client errors.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "MINISERVICE-05",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_tags_are_normalized_and_invalid_tags_do_not_create_tickets",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "MINISERVICE-06",
+      "repository_id": "miniservice",
+      "repository_source": "benchmark/repositories/miniservice",
+      "repository_revision": "78a7b24547a29cfbf442129586ce28b9a5353f14",
+      "task_category": "api_behavior_change",
+      "task_description": "The REST-style ticket endpoint should accept a numeric identifier supplied as text, as it would arrive from a URL path, and return the matching ticket. Non-numeric identifiers should receive a client error.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "MINISERVICE-06",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_06",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-01",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "single_file_bug_fix",
+      "task_description": "An empty measurement in an imported CSV means the value is unknown, not zero. Preserve missing values so they do not bias group summaries.",
+      "difficulty": "easy",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "STREAMSTATS-01",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_empty_csv_measurement_is_missing_not_zero",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-02",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "missing_function_implementation",
+      "task_description": "Rolling means should average the numeric observations present in each trailing window. Missing values must not count as zero or as an observation; omit a window with no numeric values.",
+      "difficulty": "medium",
+      "retrieval_relevance": "low",
+      "evaluator_id": "STREAMSTATS-02",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_02",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-03",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "api_behavior_change",
+      "task_description": "The threshold filter is documented as selecting measurements strictly greater than the configured limit. A value exactly on the boundary must not be included.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "STREAMSTATS-03",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_03",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-04",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "deterministic_regression",
+      "task_description": "Chronological sample ordering must break equal-timestamp ties by group name, as specified by the ordering helper's contract.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "STREAMSTATS-04",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_equal_timestamp_samples_follow_group_name_order",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-05",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "cross_file_change",
+      "task_description": "The shared data-cleaning step should discard records with negative timestamps as invalid, while retaining valid zero timestamps and known values.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "STREAMSTATS-05",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_shared_cleaning_removes_negative_timestamps_and_retains_zero",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "STREAMSTATS-06",
+      "repository_id": "streamstats",
+      "repository_source": "benchmark/repositories/streamstats",
+      "repository_revision": "1259e72a910ca23d64943be0f60bf03af7eba5d5",
+      "task_category": "cross_file_dependency_change",
+      "task_description": "The public analytics pipeline must apply the existing group-name normalization used by direct library callers. Trim surrounding whitespace and ignore case so equivalent labels aggregate together without changing their measurement values.",
+      "difficulty": "medium",
+      "retrieval_relevance": "high",
+      "evaluator_id": "STREAMSTATS-06",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_direct_normalization_and_public_pipeline_aggregate_equivalent_groups",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-01",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "cross_file_change",
+      "task_description": "Role membership includes transitive parent roles, not only direct parents. Authorization should recognize permissions granted to any ancestor role in the configured role graph.",
+      "difficulty": "medium",
+      "retrieval_relevance": "high",
+      "evaluator_id": "ACCESSFLOW-01",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_direct_role_membership_is_retained",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-02",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "security_behavior",
+      "task_description": "When matching grants include both allow and deny decisions for the same request, denial must take precedence. Preserve ordinary allow behavior when no matching denial exists.",
+      "difficulty": "medium",
+      "retrieval_relevance": "medium",
+      "evaluator_id": "ACCESSFLOW-02",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_ordinary_matching_allow_is_preserved_without_a_deny",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-03",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "workflow_behavior_change",
+      "task_description": "Approval requests should reject unsupported state changes instead of silently accepting them. Valid transitions such as draft to submitted should continue to work.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "ACCESSFLOW-03",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_03",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-04",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "regression_fix",
+      "task_description": "A time-limited grant must not authorize access when the caller omits the current time. Treat an unverified expiration as ineligible; non-expiring grants remain usable.",
+      "difficulty": "medium",
+      "retrieval_relevance": "low",
+      "evaluator_id": "ACCESSFLOW-04",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_task_04",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-05",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "multi_file_bug_fix",
+      "task_description": "A delegated resource scope should include the exact resource and its descendants, but must not authorize a sibling whose name merely shares the same character prefix.",
+      "difficulty": "medium",
+      "retrieval_relevance": "high",
+      "evaluator_id": "ACCESSFLOW-05",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_scope_boundaries_through_authorization_policy",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    },
+    {
+      "task_id": "ACCESSFLOW-06",
+      "repository_id": "accessflow",
+      "repository_source": "benchmark/repositories/accessflow",
+      "repository_revision": "554d82894b1fa095c7e6c52c2c77cf31133662d9",
+      "task_category": "api_behavior_change",
+      "task_description": "Callers must not be able to mutate the audit snapshot returned by the service, and attempted mutation must not affect later snapshots.",
+      "difficulty": "easy",
+      "retrieval_relevance": "low",
+      "evaluator_id": "ACCESSFLOW-06",
+      "evaluator_command": "python -m pytest -q <controller-evaluator-root>/<evaluator_id>/test_acceptance.py",
+      "test_name": "test_audit_snapshot_cannot_be_mutated_by_callers",
+      "test_command": "python -m pytest -q",
+      "timeout_seconds": 90,
+      "setup_requirements": [
+        "Python ==3.12.4",
+        "pytest ==7.4.4"
+      ],
+      "expected_evaluation_method": "hidden_pytest_exit_code_zero",
+      "independent_from_other_tasks": true,
+      "network_required": false
+    }
+  ]
+}
