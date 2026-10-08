@@ -18,6 +18,24 @@ The project explores whether repository-aware retrieval can improve retrieval qu
 | End-to-end coding-agent benchmark | Designed, not executed |
 | Production-grade sandboxing | Not implemented |
 
+## Quick Demo
+
+Run a deterministic, offline walkthrough of the existing multi-agent orchestrator. A scripted model makes one intentionally incorrect edit; the real repository tools and pytest expose the failure, the repair loop receives feedback, and a second edit passes before the Reviewer approves. No OpenAI API key, live RepoMind, MCP SDK transport, or hidden evaluator is used. The scripted decisions demonstrate workflow mechanics, not model capability.
+
+```bash
+git clone https://github.com/kbhva/autonomous-ai-software-engineer.git
+cd autonomous-ai-software-engineer
+python -m venv .venv
+# Windows PowerShell:
+.venv\Scripts\Activate.ps1
+# macOS/Linux instead:
+# source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python examples/deterministic_demo.py
+```
+
+The demo uses a temporary repository and prints the actual state transitions, pytest outcomes, scripted review decisions, repair count, tool calls, changed file, and final source. A verified run completed `PLAN → CODE → TEST → REVIEW → CODE → TEST → REVIEW → DONE`; pytest failed once and passed on the repair attempt. This is deterministic demo output, not a model transcript or benchmark result.
+
 ## Key Experimental Finding
 
 One-run retrieval comparison on a frozen 50-query FastAPI corpus (source-level metrics, K=5):
@@ -68,7 +86,9 @@ flowchart TD
 
 RepoMind returns repository-scoped evidence to the Planner, which can include it in the structured plan passed to the Coder. The tool layer provides file listing, reading, writing, and pytest verification. There is no general-purpose shell or Git tool. `shell=False` prevents shell parsing; it does **not** sandbox Python or pytest code.
 
-The CLI exposes `single`, `multi`, `multi-mcp`, and `multi-mcp-repomind` modes. RepoMind is a separate service: this project adapts its `POST /query` API and does not implement its ingestion or embedding pipeline. See [the integration adapter](src/flagship/repomind.py) and [the orchestrator](src/flagship/orchestration/orchestrator.py).
+The CLI exposes `single`, `multi`, `multi-mcp`, and `multi-mcp-repomind` modes. It constructs the OpenAI Responses API adapter for every `flagship run`, so live CLI tasks require `OPENAI_API_KEY`. RepoMind is a separate service: this project adapts its `POST /query` API and does not implement its ingestion or embedding pipeline. `multi-mcp-repomind` also requires a live RepoMind service and explicit repository UUID. See [the integration adapter](src/flagship/repomind.py) and [the orchestrator](src/flagship/orchestration/orchestrator.py).
+
+The actual MCP SDK transport has a documented startup hang on Windows. The deterministic demo avoids that path by using the direct tool provider.
 
 ## Engineering Decisions
 
@@ -79,13 +99,11 @@ The CLI exposes `single`, `multi`, `multi-mcp`, and `multi-mcp-repomind` modes. 
 5. **Independent retrieval evaluation:** Retrieval experiments report Recall@K, Precision@K, MRR, nDCG, and latency separately from coding-agent performance.
 6. **Security-first benchmark decision:** The benchmark was not run after the audit found that the Windows environment did not isolate generated code from host resources or protect evaluator logic.
 
-## Example Execution Flow
+## What the Demo Exercises
 
-**Conceptual flow, not a recorded model run:**
+`examples/deterministic_demo.py` injects a scripted implementation of the model's `next_action` interface directly into the existing `Orchestrator`. It uses real direct `RepositoryFileTools` and `PytestTool` against a temporary project, including a failing test and one repair cycle. It does not invoke the CLI or OpenAI model adapter, RepoMind, the MCP SDK, or hidden benchmark evaluators.
 
-`Task → Planner → optional RepoMind evidence → Coder → repository tools → pytest → Reviewer → repair feedback if needed`
-
-The repository includes a deterministic orchestration smoke test in [`tests/test_benchmark_smoke.py`](tests/test_benchmark_smoke.py). It uses a scripted model and fake MCP client, while running pytest against a temporary repository. Its assertions verify that the C and D orchestration paths complete, that only D makes a scoped retrieval call, and that D's retrieved evidence reaches the Coder. This validates test machinery; it is not a live model run, an actual MCP SDK transport test, or benchmark evidence.
+The existing [`tests/test_benchmark_smoke.py`](tests/test_benchmark_smoke.py) separately checks the C/D orchestration composition using a scripted model, fake MCP client, and fake scoped retriever. It does not use the actual MCP SDK transport or run benchmark tasks.
 
 ## Evaluation Status
 
