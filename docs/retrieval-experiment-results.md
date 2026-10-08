@@ -2,6 +2,8 @@
 
 These are one-run retrieval measurements on a frozen 50-query FastAPI corpus with source-level evaluation at K=5. They measure retrieval only; they do not measure coding-agent task success, tokens, or end-to-end coding latency. The reports and machine-readable artifacts are in [`docs/results/`](results/README.md).
 
+The public repository contains the reports, result artifacts, and manifests, but not the complete evaluation query set, evaluator implementation, or RepoMind source/runtime environment. The manifests record hashes and configuration, but those records do not make the experiment fully independently reproducible from a fresh clone. Reproducing it independently is currently limited by those missing inputs. These results do not measure agent token or cost efficiency.
+
 ## Experiment 0 — vector retrieval baseline
 
 | Metric | Result |

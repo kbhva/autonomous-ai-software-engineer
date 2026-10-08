@@ -2,17 +2,31 @@
 
 An autonomous, repository-aware AI software engineer prototype that combines repository context and retrieval with a Planner, Coder, Tester, and Reviewer. It edits through bounded tools, runs pytest verification, reviews the result, and can iteratively repair failures.
 
-The project asks: **Does repository-aware retrieval improve a small multi-agent coding system, and is any improvement worth its token and latency cost?** Retrieval experiments were conducted; the final end-to-end agent benchmark was deliberately not run after a security audit found that the local Windows execution model could not isolate untrusted generated code.
+The project asks: **Does repository-aware retrieval improve retrieval quality enough to justify its latency overhead?** Experiments measured retrieval ranking quality and latency; they did not measure token or cost efficiency. The final end-to-end agent benchmark was deliberately not run after a security audit found that the local Windows execution model could not isolate untrusted generated code.
 
-## Project status
+## Project Status
 
-| Area | Status |
-| --- | --- |
-| Multi-agent coding prototype | Implemented; model-driven behavior is not claimed as benchmarked |
-| RepoMind integration and retrieval/evaluation infrastructure | Implemented as a prototype |
-| Retrieval Experiments 0 and 1 | Measured; reports, result artifacts, and manifests are included in [experiment results](docs/retrieval-experiment-results.md) |
-| 24-task autonomous coding benchmark | Designed and oracle-validated; end-to-end LLM run **not executed** |
-| Benchmark security | Current execution model found insufficiently isolated; findings are preserved in the [security audit](docs/benchmark-isolation-security-audit.md) |
+### What works
+
+- Planner/Coder/Tester/Reviewer orchestration
+- Repository-scoped tools
+- MCP tool integration
+- RepoMind repository-aware retrieval integration
+- Test-and-repair loop
+
+### What has been measured
+
+- Vector retrieval baseline
+- Hybrid BM25 + dense retrieval experiment
+- Retrieval quality metrics and latency
+
+### What remains unvalidated
+
+- End-to-end autonomous coding-agent benchmark (**not executed**)
+- Agent task success rate
+- Agent token/cost efficiency
+
+The benchmark remains a draft. The current execution model was found insufficiently isolated; see the [security audit](docs/benchmark-isolation-security-audit.md). Retrieval results are reported in [experiment results](docs/retrieval-experiment-results.md).
 
 ## Architecture
 
@@ -59,6 +73,7 @@ Set `OPENAI_API_KEY` in the shell or a secret manager for live model calls. The 
 | `FLAGSHIP_MODEL` | `gpt-5` | Responses API model name |
 | `FLAGSHIP_MAX_TOOL_CALLS` | `20` | Shared tool-call limit |
 | `FLAGSHIP_MAX_REPAIR_ATTEMPTS` | `2` | Verification/repair retries |
+| `FLAGSHIP_MAX_CODING_ATTEMPTS` | `3` | Maximum multi-agent coding attempts |
 | `FLAGSHIP_TEST_TIMEOUT_SECONDS` | `120` | pytest timeout |
 | `REPOMIND_BASE_URL` | — | RepoMind service URL for RepoMind mode |
 | `REPOMIND_REPOSITORY_ID` | — | Explicit repository UUID for retrieval scope |
@@ -80,6 +95,8 @@ RepoMind mode requires a service URL and explicit repository UUID. Each retrieva
 ### Measured retrieval experiments
 
 Experiment 0 used baseline vector retrieval. Experiment 1 used hybrid BM25+dense retrieval. The recorded single-run results show modest ranking gains, no improvement in Recall@5 or Precision@5, and a very large latency cost. The [experiment results document](docs/retrieval-experiment-results.md) summarizes the exact metrics and links to the copied reports, JSON results, and manifests. Retrieved source-text excerpts are omitted from the public JSON artifacts; query, ranking, and metric fields are unchanged.
+
+The public repository includes the experiment reports, result artifacts, and manifests, but does not include the complete evaluation query set, evaluator implementation, or RepoMind source/runtime environment. Manifests preserve hashes and configuration details, but full independent reproduction from a fresh clone is currently limited by those missing inputs. These retrieval experiments do not measure agent token or cost efficiency.
 
 ### Autonomous coding benchmark: not executed
 
@@ -116,7 +133,7 @@ The four repositories under `benchmark/repositories/` are synthetic fixtures inc
 
 ## Future work
 
-- Publish provenance-backed numeric retrieval result tables and their source artifacts.
+- Improve independent reproduction of the retrieval experiments by documenting or, where distribution permits, publishing the missing evaluation inputs and immutable source provenance.
 - Decide whether the benchmark and its oracle assets will remain private or be permanently public.
 - Build and validate an isolated Linux worker with controller-side evaluation and one-way artifact transfer.
 - Only after security validation, freeze the task set and run a preregistered end-to-end benchmark.
